@@ -1,4 +1,4 @@
-const Hand = require('../hand.js');
+const Hand = require('../hand_model.js');
 const assert = require('assert');
 
 describe('Hand', function() {
