@@ -4,6 +4,8 @@ const Game = require('../game_model.js');
 describe('Game', function(){
 
   let game;
+  let playerHand;
+  let dealerHand;
 
 
   beforeEach(function(){
