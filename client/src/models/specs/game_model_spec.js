@@ -2,14 +2,15 @@ const assert = require('assert');
 const Game = require('../game_model.js');
 
 describe('Game', function(){
-
+  let deck;
   let game;
   let playerHand;
   let dealerHand;
 
 
   beforeEach(function(){
-    game = new Game();
+    deck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    game = new Game(deck);
     playerHand = [3, 7];
     dealerHand = [10, 4];
   });
