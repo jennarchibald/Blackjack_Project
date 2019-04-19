@@ -5,7 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "server": "node server/server.js",
-    "test": "mocha client/src/model/specs",
+    "test": "mocha client/src/models/specs",
     "build": "webpack -W",
     "server:dev": "nodemon server/server.js"
   },

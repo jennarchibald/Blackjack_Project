@@ -11,15 +11,15 @@ describe('Hand', function() {
     card1 = { value: 5};
     card2 = { value: 10};
 
-    hand = new Hand(card1, card1);
+    hand = new Hand(card1, card2);
   });
 
   it('should have with 2 cards', function(){
-    assertDeepStrictEqual(hand.cards, [card1, card2]);
+    assert.deepStrictEqual(hand.cards, [card1, card2]);
   });
 
   it('should be able to calculate the total value of the hand', function(){
-    assertEqual(hand.totalValue(), 15);
+    assert.strictEqual(hand.totalValue(), 15);
   });
 
 });
