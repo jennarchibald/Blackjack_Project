@@ -545,6 +545,8 @@ describe('Deck', function() {
   }
 
   xit('should be able to be shuffled'), function() {
+    const actual = deck.shuffle()
+    assert.deepStrictEqual(actual, deck.cards)  
     assert.strictEqual()
   }
 
