@@ -6,13 +6,14 @@
   "scripts": {
     "server": "node server/server.js",
     "test": "mocha client/src/models/specs",
-    "build": "webpack -W",
+    "build": "webpack -w",
     "server:dev": "nodemon server/server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "mongodb": "^3.2.3"
   },
   "devDependencies": {
     "mocha": "^6.1.4",
