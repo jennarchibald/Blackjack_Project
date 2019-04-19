@@ -538,16 +538,15 @@ describe('Deck', function() {
   })
 
 
-  it('should be able to take a card from the deck'), function() {
+  it('should be able to take a card from the deck', function() {
     const card = deck.getCard();
     assert.strictEqual(card.code, 'KH');
     assert.strictEqual(deck.cards.length, 51);
-  }
+  })
 
-  xit('should be able to be shuffled'), function() {
-    const actual = deck.shuffle()
-    assert.deepStrictEqual(actual, deck.cards)  
-    assert.strictEqual()
-  }
+  it('should be able to be shuffled', function() {
+    deck.shuffle()
+    // console.log(deck.cards);
+  })
 
 });
