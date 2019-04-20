@@ -10,9 +10,13 @@ const Game = function(){
 };
 
 Game.prototype.bindEvents = function(){
-  PubSub.subscribe("ButtonsView:show-result-clicked", (evt)=> {
+  PubSub.subscribe("ButtonsView:stick-clicked", (evt)=> {
     const result = this.determineWinner();
     PubSub.publish('Game: results-ready', result);
+  });
+  PubSub.subscribe("ButtonsView:hit-clicked", (evt) => {
+    this.dealCard('playerHand');
+    PubSub.publish('Game:player-hand-ready', this.playerHand);
   });
 };
 
@@ -29,16 +33,22 @@ Game.prototype.getDeck = function () {
 // creates a new deck and deals two cards to each player
 Game.prototype.openingDeal = function(){
   this.deck.shuffle();
-  card1 = this.deck.getCard();
-  card2 = this.deck.getCard();
-  card3 = this.deck.getCard();
-  card4 = this.deck.getCard();
-  this.playerHand = new Hand(card1, card3);
-  this.dealerHand = new Hand(card2, card4);
+  this.playerHand = new Hand();
+  this.dealerHand = new Hand();
+  this.dealCard('playerHand');
+  this.dealCard('dealerHand');
+  this.dealCard('playerHand');
+  this.dealCard('dealerHand');
   console.log(this.playerHand);
   console.log(this.dealerHand);
   console.log(this.determineWinner());
 }
+
+Game.prototype.dealCard = function(handOwner){
+  const card = this.deck.getCard();
+  this[handOwner].cards.push(card);
+  this[handOwner].checkForBust();
+};
 
 //compares values of two hands and returns which is higher
 Game.prototype.determineWinner = function(){

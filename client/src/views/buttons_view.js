@@ -5,16 +5,27 @@ const ButtonsView = function(container){
 };
 
 ButtonsView.prototype.render = function () {
-  this.renderResultButton()
+  this.container.innerHTML = '';
+  this.renderHitButton();
+  this.renderResultButton();
 };
 
 ButtonsView.prototype.renderResultButton = function () {
   const resultButton = document.createElement('button');
-  resultButton.textContent = "Show Result";
+  resultButton.textContent = "Stick";
   resultButton.addEventListener('click', () => {
-    PubSub.publish("ButtonsView:show-result-clicked");
+    PubSub.publish("ButtonsView:stick-clicked");
   });
   this.container.appendChild(resultButton);
+};
+
+ButtonsView.prototype.renderHitButton = function (){
+  const hitButton = document.createElement('button');
+  hitButton.textContent = "Hit";
+  hitButton.addEventListener('click', () => {
+    PubSub.publish("ButtonsView:hit-clicked");
+  });
+  this.container.appendChild(hitButton);
 };
 
 module.exports = ButtonsView;

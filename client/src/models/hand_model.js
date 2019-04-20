@@ -1,5 +1,5 @@
-const Hand = function (card1, card2){
-  this.cards = [card1, card2];
+const Hand = function (){
+  this.cards = [];
 };
 
 Hand.prototype.totalValue = function () {
