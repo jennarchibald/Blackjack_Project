@@ -25,9 +25,9 @@ Hand.prototype.acesLow = function () {
   const ace = this.cards.find((card) => {
     return card.value === 11;
   });
-  console.log(ace);
-  const index = this.cards.indexOf(ace)
-  this.cards[index].value = 1;
+  if (ace) {
+    ace.value = 1;
+  };
 };
 
 module.exports = Hand;
