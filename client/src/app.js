@@ -1,3 +1,4 @@
+
 const Game = require('./models/game_model.js');
 
 document.addEventListener('DOMContentLoaded', ()=> {
@@ -6,5 +7,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
   const game = new Game();
 
   game.getDeck();
+
 
 });
