@@ -44,6 +44,7 @@ Game.prototype.openingDeal = function(){
 Game.prototype.determineWinner = function(){
   const playerHand = this.playerHand.totalValue();
   const dealerHand = this.dealerHand.totalValue();
+  
   if (playerHand > dealerHand) {
     return "Player wins";
   } else if (playerHand === dealerHand){
@@ -52,6 +53,8 @@ Game.prototype.determineWinner = function(){
     return "House wins"
   }
 };
+
+Game.prototype.
 
 
 module.exports = Game;
