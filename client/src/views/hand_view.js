@@ -5,9 +5,9 @@ const HandView = function(container, hand) {
 }
 
 HandView.prototype.render = function() {
-  this.hand.forEach((card)=> {
+  this.hand.cards.forEach((card)=> {
     const cardImg = document.createElement('img');
-    cardImg.src = card.image;
+    cardImg.src = card.images.png;
     cardImg.classList.add('card')
     this.container.appendChild(cardImg);
   })
