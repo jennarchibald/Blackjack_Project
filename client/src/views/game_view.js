@@ -34,6 +34,7 @@ GameView.prototype.createPlayerView = function(){
   this.container.appendChild(playerContainer);
   playerView = new PlayerView(playerContainer, this.playerHand);
   playerView.render();
+  playerView.bindEvents();
 };
 
 GameView.prototype.createResultView =
@@ -43,7 +44,6 @@ function(){
   this.container.appendChild(resultContainer);
   resultView = new ResultView(resultContainer);
   resultView.bindEvents();
-  // resultView.render();
 };
 
 
