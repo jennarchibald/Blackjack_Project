@@ -54,17 +54,14 @@ Game.prototype.dealCard = function(handOwner){
 Game.prototype.determineWinner = function(){
   const playerHand = this.playerHand.totalValue();
   const dealerHand = this.dealerHand.totalValue();
-  
-  if (playerHand > dealerHand) {
+  console.log(this.playerHand);
+  if (playerHand > dealerHand && !this.playerHand.checkForBust()) {
     return "Player wins";
-  } else if (playerHand === dealerHand){
+  } else if (playerHand === dealerHand && !this.playerHand.checkForBust()){
     return "Push";
   } else {
     return "House wins"
   }
 };
-
-Game.prototype.
-
 
 module.exports = Game;
