@@ -9,11 +9,14 @@ const ResultView = require('./views/result_view.js');
 document.addEventListener('DOMContentLoaded', ()=> {
   console.log('Javascript Loaded');
 
+  const container = document.querySelector('#game-container');
+
+  const gameView = new GameView(container);
+  gameView.bindEvents();
+
   const game = new Game();
+  game.bindEvents();
   game.getDeck();
 
-
-  const gameView = new GameView();
-  gameView.bindEvents();
 
 });

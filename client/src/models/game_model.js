@@ -9,12 +9,20 @@ const Game = function(){
   this.dealerHand = null
 };
 
+Game.prototype.bindEvents = function(){
+  PubSub.subscribe("ButtonsView:show-result-clicked", (evt)=> {
+    const result = this.determineWinner();
+    PubSub.publish('Game: results-ready', result);
+  });
+};
+
 Game.prototype.getDeck = function () {
   this.deck = new Deck;
   const request = new RequestHelper('http://localhost:3000/api/deck');
   request.get().then((cards) => {
     this.deck.cards = cards;
     this.openingDeal();
+    PubSub.publish('Game:hands-ready', { dealerHand: this.dealerHand, playerHand: this.playerHand});
   }).catch((err) => console.error(err));
 };
 

@@ -1,4 +1,4 @@
-const PubSub = require('../helpers/buttons_view.js');
+const PubSub = require('../helpers/pub_sub.js');
 
 const ButtonsView = function(container){
   this.container = container;
