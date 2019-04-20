@@ -22,7 +22,7 @@ ResultView.prototype.render = function (result) {
 
   this.container.innerHTML = "";
 
-  const = thisResult = this.buildElement('h2', result.detail);
+  const thisResult = this.buildElement('h2', result);
   resultContainer.appendChild(thisResult);
 }
 
