@@ -1,19 +1,8 @@
 const PubSub = require('../helpers/pub_sub.js');
 
-const HandView = function(container, hand, owner='player') {
+const HandView = function(container, hand) {
   this.container = container;
   this.hand = hand;
-  this.owner = owner;
-
-}
-
-HandView.prototype.bindEvents = function() {
-  if (this.owner == 'dealer') {
-    PubSub.subscribe('Game:dealer-dealt-card', (evt)=>{
-      this.render();
-      PubSub.publish('GameView:dealer-card-displayed');
-    });
-  }
 }
 
 
