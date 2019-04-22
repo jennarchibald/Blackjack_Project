@@ -9,11 +9,13 @@ const HandView = function(container, hand) {
 HandView.prototype.render = function() {
   this.container.innerHTML = '';
   this.hand.cards.forEach((card)=> {
-    const time = this.hand.cards.length;
+    const imgDiv = document.createElement('div');
+    imgDiv.classList.add('card-wrapper')
+    this.container.appendChild(imgDiv);
     const cardImg = document.createElement('img');
     cardImg.src = card.images.png;
     cardImg.classList.add('card')
-    this.container.appendChild(cardImg);
+    imgDiv.appendChild(cardImg);
   })
 }
 module.exports = HandView;
