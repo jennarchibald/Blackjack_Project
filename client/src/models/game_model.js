@@ -11,13 +11,20 @@ const Game = function(){
 
 Game.prototype.bindEvents = function(){
   PubSub.subscribe("ButtonsView:stick-clicked", (evt)=> {
+    this.disableButtons();
+    this.dealersTurn();
 
   });
   PubSub.subscribe("ButtonsView:hit-clicked", (evt) => {
+    if (this.playerHand.totalValue() < 17){
     this.dealCard('playerHand');
     PubSub.publish('Game:player-hand-ready', this.playerHand);
-  });
-};
+  } else {
+    PubSub.publish('Game:player-bust');
+    this.disableButtons();
+    this.dealersTurn();
+  }
+});
 
 Game.prototype.getDeck = function () {
   this.deck = new Deck;
