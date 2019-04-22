@@ -16,7 +16,7 @@ DealerView.prototype.bindEvents = function() {
 
 DealerView.prototype.render = function () {
   this.container.innerHTML = '';
-  const totalContainer = this.makeContainer('player-total')
+  const totalContainer = this.makeContainer('dealer-total')
   const totalView = new TotalView(totalContainer, 'Dealer', this.hand.totalValue());
   totalView.render();
   const handContainer = this.makeContainer('dealer-hand');

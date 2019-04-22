@@ -19,6 +19,10 @@ h2 {
   margin: 0.15em;
 }
 
+h1 {
+  /* display: inline-block; */
+}
+
 .result-view {
   height: 6em;
   margin: 2em;
@@ -40,7 +44,7 @@ img {
   align-items: center;
 }
 
-.player-view {
+.player-hand {
     position: relative;
     bottom: 0;
     left: 25vw;
@@ -48,13 +52,29 @@ img {
     width: 50vw;
     margin: 0;
 }
-.dealer-view {
+.dealer-hand {
     position: relative;
     top: 0;
     left: 25vw;
     right: 25vw;
     width: 50vw;
     margin: 0;
+}
+
+.dealer-total {
+  position: relative;
+  top: 0;
+  left: 0;
+  float: left;
+  text-align: center;
+}
+
+.player-total {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  float: left;
+  text-align: center;
 }
 
 img:first-of-type {

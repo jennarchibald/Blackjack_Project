@@ -28,7 +28,7 @@ ResultView.prototype.render = function (result) {
 
   if(this.bustHeading) {resultContainer.appendChild(this.bustHeading)};
 
-  const thisResult = this.buildElement('h2', `Result: ${result}`);
+  const thisResult = this.buildElement('h2', result);
   resultContainer.appendChild(thisResult);
 
   const reloadButton = document.createElement('button');
