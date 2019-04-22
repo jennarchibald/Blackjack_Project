@@ -11,7 +11,6 @@ const Game = function(){
 
 Game.prototype.bindEvents = function(){
   PubSub.subscribe("ButtonsView:stick-clicked", (evt)=> {
-    this.disableButtons();
     this.dealersTurn();
 
   });
@@ -21,7 +20,6 @@ Game.prototype.bindEvents = function(){
     PubSub.publish('Game:player-hand-ready', this.playerHand);
   } else {
     PubSub.publish('Game:player-bust');
-    this.disableButtons();
     this.dealersTurn();
   }
 });
