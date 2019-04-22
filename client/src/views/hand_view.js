@@ -8,17 +8,19 @@ const HandView = function(container, hand, owner='player') {
 }
 
 HandView.prototype.bindEvents = function() {
-  PubSub.subscribe('Game:dealer-dealt-card', (evt)=>{
-    if (this.owner == 'dealer') {
-      this.hand = evt.detail;
+  if (this.owner == 'dealer') {
+    PubSub.subscribe('Game:dealer-dealt-card', (evt)=>{
       this.render();
-    }
-  });
+      PubSub.publish('GameView:dealer-card-displayed');
+    });
+  }
 }
+
 
 HandView.prototype.render = function() {
   this.container.innerHTML = '';
   this.hand.cards.forEach((card)=> {
+    const time = this.hand.cards.length;
     const cardImg = document.createElement('img');
     cardImg.src = card.images.png;
     cardImg.classList.add('card')

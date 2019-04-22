@@ -19,11 +19,15 @@ Game.prototype.bindEvents = function(){
     this.dealCard('playerHand');
     PubSub.publish('Game:player-hand-ready', this.playerHand);
 
-   if (this.playerHand.checkForBust()){
-    PubSub.publish('Game:player-bust');
+    if (this.playerHand.checkForBust()){
+      PubSub.publish('Game:player-bust');
+      this.dealersTurn();
+    }
+  });
+
+  PubSub.subscribe('GameView:dealer-card-displayed', (evt) => {
     this.dealersTurn();
-  }
-});
+  })
 }
 
 Game.prototype.getDeck = function () {
@@ -45,19 +49,24 @@ Game.prototype.openingDeal = function(){
   this.dealCard('dealerHand');
   this.dealCard('playerHand');
   this.dealCard('dealerHand');
-  console.log(this.playerHand);
-  console.log(this.dealerHand);
-  console.log(this.determineWinner());
 }
 
 // plays the dealers turn
 Game.prototype.dealersTurn = function () {
-  while (this.dealerHand.totalValue() < 17){
+  if (this.dealerHand.totalValue() < 17){
     this.dealCard('dealerHand');
-    PubSub.publish("Game:dealer-dealt-card", this.dealerHand);
+    window.setTimeout(this.publishDealerCard, 1000)
+  } else {
+    const result = this.determineWinner();
+    window.setTimeout(() => {
+      PubSub.publish('Game: results-ready', result);
+    }, 1000);
   };
-  const result = this.determineWinner();
-  PubSub.publish('Game: results-ready', result);
+};
+
+// publishes when the dealer has a new card
+Game.prototype.publishDealerCard = function (){
+  PubSub.publish("Game:dealer-dealt-card");
 };
 
 
@@ -66,16 +75,15 @@ Game.prototype.dealCard = function(handOwner){
   const card = this.deck.getCard();
   this[handOwner].cards.push(card);
   this[handOwner].checkForBust();
+  return card;
 };
 
 //compares values of two hands and returns which is higher
 Game.prototype.determineWinner = function(){
-  console.log(this.dealerHand.checkForBust());
   const playerHand = this.playerHand.totalValue();
   const dealerHand = this.dealerHand.totalValue();
-
   if (this.playerHand.checkForBust()){
-      return "House wins"
+    return "House wins"
   } else if (this.dealerHand.checkForBust()){
     return "Player wins";
   } else {
@@ -87,13 +95,6 @@ Game.prototype.determineWinner = function(){
       return "Push";
     }
   }
-  // if (playerHand > dealerHand && (!this.playerHand.checkForBust() || this.dealerHand.checkForBust())) {
-  //   return "Player wins";
-  // } else if (dealerHand > playerHand && !this.dealerHand.checkForBust()){
-  //   return "House wins"
-  // } else {
-  //   return "Push";
-  // }
 };
 
 module.exports = Game;
