@@ -13,19 +13,31 @@ ButtonsView.prototype.render = function () {
 ButtonsView.prototype.renderResultButton = function () {
   const resultButton = document.createElement('button');
   resultButton.textContent = "Stick";
+  resultButton.classList.add('player-buttons');
   resultButton.addEventListener('click', () => {
     PubSub.publish("ButtonsView:stick-clicked");
   });
+  resultButton.addEventListener('click', () => {
+    this.disableButtons();
+  })
   this.container.appendChild(resultButton);
 };
 
 ButtonsView.prototype.renderHitButton = function (){
   const hitButton = document.createElement('button');
   hitButton.textContent = "Hit";
+  hitButton.classList.add('player-buttons');
   hitButton.addEventListener('click', () => {
     PubSub.publish("ButtonsView:hit-clicked");
   });
   this.container.appendChild(hitButton);
+};
+
+ButtonsView.prototype.disableButtons = function (){
+  buttons = document.querySelectorAll('.player-buttons');
+  buttons.forEach((button) => {
+    button.disabled = true;
+  });
 };
 
 module.exports = ButtonsView;

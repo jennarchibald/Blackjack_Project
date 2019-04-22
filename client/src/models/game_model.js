@@ -12,6 +12,7 @@ const Game = function(){
 Game.prototype.bindEvents = function(){
   PubSub.subscribe("ButtonsView:stick-clicked", (evt)=> {
     const result = this.determineWinner();
+
     PubSub.publish('Game: results-ready', result);
   });
   PubSub.subscribe("ButtonsView:hit-clicked", (evt) => {
