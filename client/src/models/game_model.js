@@ -15,10 +15,11 @@ Game.prototype.bindEvents = function(){
 
   });
   PubSub.subscribe("ButtonsView:hit-clicked", (evt) => {
-    if (this.playerHand.totalValue() < 17){
+
     this.dealCard('playerHand');
     PubSub.publish('Game:player-hand-ready', this.playerHand);
-  } else {
+
+   if (this.playerHand.checkForBust()){
     PubSub.publish('Game:player-bust');
     this.dealersTurn();
   }
@@ -69,15 +70,30 @@ Game.prototype.dealCard = function(handOwner){
 
 //compares values of two hands and returns which is higher
 Game.prototype.determineWinner = function(){
+  console.log(this.dealerHand.checkForBust());
   const playerHand = this.playerHand.totalValue();
   const dealerHand = this.dealerHand.totalValue();
-  if (playerHand > dealerHand && !this.playerHand.checkForBust()) {
+
+  if (this.playerHand.checkForBust()){
+      return "House wins"
+  } else if (this.dealerHand.checkForBust()){
     return "Player wins";
-  } else if (dealerHand > playerHand && !this.dealerHand.checkForBust()){
-    return "House wins"
   } else {
-    return "Push";
+    if (playerHand > dealerHand) {
+      return "Player wins";
+    } else if (dealerHand > playerHand){
+      return "House wins"
+    } else {
+      return "Push";
+    }
   }
+  // if (playerHand > dealerHand && (!this.playerHand.checkForBust() || this.dealerHand.checkForBust())) {
+  //   return "Player wins";
+  // } else if (dealerHand > playerHand && !this.dealerHand.checkForBust()){
+  //   return "House wins"
+  // } else {
+  //   return "Push";
+  // }
 };
 
 module.exports = Game;
