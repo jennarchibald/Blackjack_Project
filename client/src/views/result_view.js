@@ -9,11 +9,14 @@ ResultView.prototype.bindEvents = function () {
     const result = evt.detail;
     this.render(result);
   });
+  PubSub.subscribe('Game:player-bust', (evt) => {
+    this.bustStatus();
+  });
 };
 
 ResultView.prototype.buildElement = function (type, text) {
   let element = document.createElement(type);
-  element.textContent = `Result: ${text}`;
+  element.textContent = text;
   return element;
 };
 
@@ -22,8 +25,14 @@ ResultView.prototype.render = function (result) {
 
   this.container.innerHTML = "";
 
-  const thisResult = this.buildElement('h2', result);
+  const thisResult = this.buildElement('h2', `Result: ${result}`);
   resultContainer.appendChild(thisResult);
+
+}
+
+ResultView.prototype.bustStatus = function () {
+  bustStatus = this.buildElement('h2', "You've gone bust!!");
+  this.container.appendChild(bustStatus);
 }
 
 module.exports = ResultView;

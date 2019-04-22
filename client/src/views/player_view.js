@@ -23,6 +23,7 @@ PlayerView.prototype.render = function () {
   const buttonsContainer = this.makeContainer('buttons');
   const buttonsView = new ButtonsView(buttonsContainer);
   buttonsView.render();
+  buttonsView.bindEvents();
 };
 
 PlayerView.prototype.makeContainer = function (containerClass) {

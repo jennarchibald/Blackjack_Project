@@ -4,6 +4,12 @@ const ButtonsView = function(container){
   this.container = container;
 };
 
+ButtonsView.prototype.bindEvents = function () {
+  PubSub.subscribe('Game:player-bust', (evt) => {
+    this.disableButtons();
+  })
+};
+
 ButtonsView.prototype.render = function () {
   this.container.innerHTML = '';
   this.renderHitButton();
