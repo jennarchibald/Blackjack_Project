@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
   const gameView = new GameView(container);
   gameView.bindEvents();
 
+
   const game = new Game();
   game.bindEvents();
   game.getDeck();

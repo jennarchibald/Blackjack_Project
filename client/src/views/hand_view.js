@@ -1,7 +1,17 @@
-const HandView = function(container, hand) {
+const HandView = function(container, hand, owner=player) {
   this.container = container;
   this.hand = hand;
+  this.owner = owner;
 
+}
+
+HandView.prototype.bindEvents = function() {
+  PubSub.subscribe('Game:dealer-dealt-card', (evt)=>{
+    if (this.owner) =='dealer'{
+      this.hand = evt.detail;
+      this.render();
+    }
+  });
 }
 
 HandView.prototype.render = function() {
