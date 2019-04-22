@@ -2,6 +2,7 @@ const PubSub = require('../helpers/pub_sub.js');
 
 const ResultView = function (container) {
   this.container = container;
+  this.bustHeading = null;
 };
 
 ResultView.prototype.bindEvents = function () {
@@ -25,6 +26,8 @@ ResultView.prototype.render = function (result) {
 
   this.container.innerHTML = "";
 
+  if(this.bustHeading) {resultContainer.appendChild(this.bustHeading)};
+
   const thisResult = this.buildElement('h2', `Result: ${result}`);
   resultContainer.appendChild(thisResult);
 
@@ -36,7 +39,8 @@ ResultView.prototype.render = function (result) {
 
 // this isn't quite working right - have a think
 ResultView.prototype.bustStatus = function () {
-  bustStatus = this.buildElement('h2', "You've gone bust!!");
+  const bustStatus = this.buildElement('h2', "You've gone bust!!");
+  this.bustHeading = bustStatus;
   this.container.appendChild(bustStatus);
 }
 
