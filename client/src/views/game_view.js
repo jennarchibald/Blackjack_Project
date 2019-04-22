@@ -26,7 +26,6 @@ GameView.prototype.createDealerHandView = function(){
   this.container.appendChild(dealerContainer);
   handView = new HandView(dealerContainer, this.dealerHand, 'dealer');
   handView.bindEvents();
-  handView.render();
 };
 
 GameView.prototype.createPlayerView = function(){
