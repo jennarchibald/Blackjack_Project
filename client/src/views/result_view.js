@@ -28,11 +28,18 @@ ResultView.prototype.render = function (result) {
   const thisResult = this.buildElement('h2', `Result: ${result}`);
   resultContainer.appendChild(thisResult);
 
+  const reloadButton = document.createElement('button');
+  reloadButton.textContent = "Play again?"
+  reloadButton.addEventListener('click', function(){location.reload()});
+  resultContainer.appendChild(reloadButton);
 }
 
+// this isn't quite working right - have a think
 ResultView.prototype.bustStatus = function () {
   bustStatus = this.buildElement('h2', "You've gone bust!!");
   this.container.appendChild(bustStatus);
 }
+
+
 
 module.exports = ResultView;
