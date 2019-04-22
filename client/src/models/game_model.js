@@ -25,6 +25,7 @@ Game.prototype.bindEvents = function(){
     this.dealersTurn();
   }
 });
+}
 
 Game.prototype.getDeck = function () {
   this.deck = new Deck;
