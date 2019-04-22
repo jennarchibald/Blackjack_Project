@@ -2,39 +2,47 @@ body {
   background-color: black;
   box-sizing: content-box;
   font-family: 'Noticia Text', serif;
-  height: 100vh;
-}
+  margin: 0px;
 
-#game-container {
-  background-color: green;
- background-image: url("https://www.transparenttextures.com/patterns/green-fibers.png");
-  border-radius: 10px;
-  height: 96vh;
-  padding: 20px;
 }
 
 h2 {
-  font-size: 2.5em;
+  font-size: 1.5em;
   font-weight: bolder;
-  margin: 0.15em;
-}
-
-h1 {
-  /* display: inline-block; */
-}
-
-.result-view {
-  height: 6em;
-  margin: 2em;
+  margin: 0.05em;
 }
 
 img {
-  height: auto;
-  max-width: 180px;
-  /* margin-left: -80px; */
+  max-height: 100%;
 }
 
-.result-view {
+#game-container {
+  margin: 1vh;
+  background-color: green;
+  background-image: url("https://www.transparenttextures.com/patterns/green-fibers.png");
+  border-radius: 10px;
+  max-height: 98vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-content: space-evenly;
+}
+
+div.dealer-view {
+  display: grid;
+  grid-template-columns:30vw 40vw 30vw;
+  height: 30vh;
+}
+
+div.player-view {
+  display: grid;
+  grid-template-columns:30vw 40vw 30vw;
+  grid-template-rows: 30vh 1fr;
+  height: 40vh;
+}
+
+div.result-view {
+  height:35vh;
   width: 50%;
   margin-left: auto;
   margin-right: auto;
@@ -44,35 +52,24 @@ img {
   align-items: center;
 }
 
-
 div.dealer-hand, div.player-hand{
   display: flex;
-  flex-direction: row;
-  max-width: 40vw;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 30vw;
+  max-height: 30vh;
+  justify-self: center;
 }
 
 .dealer-total {
   position: relative;
-  top: 0;
-  left: 0;
   float: left;
   text-align: center;
 }
 
 .player-total {
   position: relative;
-  bottom: 0;
-  left: 0;
   float: left;
   text-align: center;
 }
-
-/* img:first-of-type {
-  margin-left: 0;
-} */
-
 
 .card-wrapper{
   overflow: hidden;
@@ -86,23 +83,57 @@ div.dealer-hand, div.player-hand{
 button {
   -webkit-appearance: none;
   height: 1.5em;
-  width: 30vw;
-  font-size: 1.75em;
+  width: 15em;
+  font-size: 1.25em;
   margin: 5px;
   border-radius: 5px;
   font-family: 'Noticia Text', serif;
 }
+button:hover {
+  -webkit-appearance: none;
+  height: 1.5em;
+  width: 15em;
+  font-size: 1.25em;
+  margin: 5px;
+  border-radius: 5px;
+  font-family: 'Noticia Text', serif;
+  color: green;
+
+}
 
 button.player-buttons {
-  width: 20vw;
+  height: 2.25em;
+  width: 7em;
+  background-color: black;
+  color: green;
+  border: 1px solid black;
+}
+button.player-buttons:hover {
+  height: 2.25em;
+  width: 7em;
+  background-color: black;
+  color: yellow;
+  border: 1px solid black;
+}
+button.player-buttons:focus {
+  height: 2.25em;
+  width: 7em;
+  background-color: black;
+  color: red;
+  border: 1px solid black;
+}
+button.player-buttons:disabled {
+  height: 2.25em;
+  width: 7em;
+  background-color: black;
+  color: grey;
+  border: 1px solid black;
 }
 
-button:hover {
-  color: #409925;
-}
+
 
 .buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  justify-self: center;
+  grid-row: 2 / span 1;
+  grid-column: 2 / span 1;
 }

@@ -7,11 +7,11 @@ const TotalView = function (container, owner, total){
 TotalView.prototype.render = function () {
   this.container.innerHTML = '';
 
-  const ownerHeading = document.createElement('h1');
+  const ownerHeading = document.createElement('h2');
   ownerHeading.textContent = this.owner;
   this.container.appendChild(ownerHeading);
 
-  const totalHeading = document.createElement('h1');
+  const totalHeading = document.createElement('h4');
   totalHeading.textContent = `Hand Value: ${this.total}`;
   this.container.appendChild(totalHeading);
 };
