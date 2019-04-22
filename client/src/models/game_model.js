@@ -11,8 +11,7 @@ const Game = function(){
 
 Game.prototype.bindEvents = function(){
   PubSub.subscribe("ButtonsView:stick-clicked", (evt)=> {
-    const result = this.determineWinner();
-    PubSub.publish('Game: results-ready', result);
+
   });
   PubSub.subscribe("ButtonsView:hit-clicked", (evt) => {
     this.dealCard('playerHand');
@@ -44,6 +43,18 @@ Game.prototype.openingDeal = function(){
   console.log(this.determineWinner());
 }
 
+// plays the dealers turn
+Game.prototype.dealersTurn = function () {
+  while (this.dealerHand.totalValue() < 17){
+    this.dealCard('dealerHand');
+    PubSub.publish("Game:dealer-dealt-card", this.dealerHand);
+  };
+  const result = this.determineWinner();
+  PubSub.publish('Game: results-ready', result);
+};
+
+
+// deals a card to a specified hand
 Game.prototype.dealCard = function(handOwner){
   const card = this.deck.getCard();
   this[handOwner].cards.push(card);
@@ -54,13 +65,12 @@ Game.prototype.dealCard = function(handOwner){
 Game.prototype.determineWinner = function(){
   const playerHand = this.playerHand.totalValue();
   const dealerHand = this.dealerHand.totalValue();
-  console.log(this.playerHand);
   if (playerHand > dealerHand && !this.playerHand.checkForBust()) {
     return "Player wins";
-  } else if (playerHand === dealerHand && !this.playerHand.checkForBust()){
-    return "Push";
-  } else {
+  } else if (dealerHand > playerHand && !this.dealerHand.checkForBust()){
     return "House wins"
+  } else {
+    return "Push";
   }
 };
 
