@@ -19,7 +19,7 @@ img {
 #game-container {
   margin: 1vh;
   background-color: green;
-  background-image: "../images/green-fibers.png";
+  background-image: url("../images/green-fibers.png");
   border-radius: 10px;
   max-height: 98vh;
   overflow: hidden;
