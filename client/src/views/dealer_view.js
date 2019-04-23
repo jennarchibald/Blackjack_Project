@@ -34,6 +34,7 @@ DealerView.prototype.render = function (firstCardDown) {
   if (firstCardDown) { total = '???'  }
   const totalView = new TotalView(totalContainer, 'Dealer', total);
   totalView.render();
+  totalView.bindEvents();
   const handContainer = this.makeContainer('dealer-hand');
   const handView = new HandView(handContainer, this.hand, firstCardDown);
   handView.render();

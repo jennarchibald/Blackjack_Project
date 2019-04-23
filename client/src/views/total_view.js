@@ -5,6 +5,7 @@ const TotalView = function (container, owner, total){
   this.owner = owner;
   this.total = total;
   this.bustStatus = null;
+  this.bustStatusDealer = null;
 };
 
 TotalView.prototype.bindEvents = function() {
@@ -12,8 +13,17 @@ TotalView.prototype.bindEvents = function() {
     const bustStatus = document.createElement('h2');
     bustStatus.textContent = "BUST"
     this.bustStatus = bustStatus;
+        console.log('player working');
     this.render();
-    console.log(this.owner);
+
+  });
+  PubSub.subscribe('Game:dealer-bust', (evt) => {
+    const bustStatusDealer = document.createElement('h2');
+    bustStatusDealer.textContent = "BUST"
+    this.bustStatusDealer = bustStatusDealer;
+    console.log('dealer working');
+    this.render();
+
   });
 }
 
@@ -28,9 +38,15 @@ TotalView.prototype.render = function () {
   totalHeading.textContent = `Hand Value: ${this.total}`;
   this.container.appendChild(totalHeading);
 
-  if (this.bustStatus) {
+  if (this.bustStatus && this.owner === "Player") {
     this.container.appendChild(this.bustStatus);
   }
+
+  if (this.bustStatusDealer && this.owner == "Dealer") {
+    console.log('working');
+    this.container.appendChild(this.bustStatusDealer);
+  }
+
 
 
 };
