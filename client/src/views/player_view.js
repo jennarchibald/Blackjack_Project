@@ -1,6 +1,7 @@
 const HandView = require('./hand_view.js');
 const ButtonsView = require('./buttons_view.js');
 const TotalView = require('./total_view.js');
+const BetView = require('./bet_view.js');
 const PubSub = require('../helpers/pub_sub.js');
 
 const PlayerView = function(container, hand){
@@ -29,6 +30,10 @@ PlayerView.prototype.render = function () {
   const buttonsView = new ButtonsView(buttonsContainer);
   buttonsView.render();
   buttonsView.bindEvents();
+
+  const betContainer = this.makeContainer('bets');
+  const betView = new BetView(betContainer);
+  betView.render();
 };
 
 PlayerView.prototype.makeContainer = function (containerClass) {
