@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
   const game = new Game();
   game.bindEvents();
-  game.getPlayer();
+  game.newPlayer();
   game.getDeck();
 
 

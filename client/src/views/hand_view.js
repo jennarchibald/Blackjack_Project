@@ -18,4 +18,11 @@ HandView.prototype.render = function() {
     imgDiv.appendChild(cardImg);
   })
 }
+
+// render first card hidden
+//
+// arraytorender = this.hand.cards
+// arraytorender[0] = {images: {png: url of back of card}}
+// arraytorender.forEach(render the thing)
+
 module.exports = HandView;

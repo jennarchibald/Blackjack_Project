@@ -27,7 +27,7 @@ Player.prototype.save = function (){
   const request = new RequestHelper('http://localhost:3000/api/players')
   request.post({"wallet": this.wallet})
   .then((player) => {
-    this.id = player.id;
+    this.id = player._id;
   })
   .catch(console.error);
 };

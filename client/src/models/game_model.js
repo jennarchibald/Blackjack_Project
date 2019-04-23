@@ -31,9 +31,9 @@ Game.prototype.bindEvents = function(){
   })
 }
 
-Game.prototype.getPlayer = function() {
+Game.prototype.newPlayer = function() {
   this.player = new Player();
-
+  this.player.save()
 }
 
 Game.prototype.getDeck = function () {
