@@ -2,6 +2,7 @@ const PubSub = require('../helpers/pub_sub.js');
 const HandView = require('./hand_view')
 const PlayerView = require('./player_view');
 const ResultView = require('./result_view');
+const DealerView = require('./dealer_view.js');
 
 const GameView = function(container){
   this.container = container

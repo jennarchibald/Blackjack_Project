@@ -17,7 +17,7 @@ Game.prototype.bindEvents = function(){
   });
   PubSub.subscribe("ButtonsView:hit-clicked", (evt) => {
 
-    this.dealCard('playerHand');
+    this.dealCard('player');
     PubSub.publish('Game:player-hand-ready', this.player.hand);
 
     if (this.player.hand.checkForBust()){
@@ -60,7 +60,7 @@ Game.prototype.openingDeal = function(){
 // plays the dealers turn
 Game.prototype.dealersTurn = function () {
   if (this.dealer.hand.totalValue() < 17){
-    this.dealCard('dealer.hand');
+    this.dealCard('dealer');
     window.setTimeout(this.publishDealerCard, 1000)
   } else {
     const result = this.determineWinner();
