@@ -1,6 +1,6 @@
 const PubSub = require('../helpers/pub_sub.js');
 
-const BetView = function (constainer) {
+const BetView = function (container) {
   this.container = container;
   this.betValue = 0;
 };
@@ -17,9 +17,13 @@ BetView.prototype.renderBetButton = function (value) {
   const betButton = document.createElement("button");
   betButton.textContent = value;
   betButton.value = value;
-  betButton.classlist.add('bet-buttons')
+  betButton.classList.add('bet-buttons')
   betButton.addEventListener('click', () => {
-    this.betValue += betbutton.value;
+    this.betValue += betButton.value;
+<<<<<<< HEAD
+    this.renderCurrentBet(betbutton.value);
+=======
+>>>>>>> 54991d50da5adb5cbd1aa19dd539b211f9af0850
   });
   this.container.appendChild(betButton)
 }
@@ -27,11 +31,19 @@ BetView.prototype.renderBetButton = function (value) {
 BetView.prototype.renderPlaceBet = function (value) {
   const placeBet = document.createElement("button");
   placeBet.textContent = value;
-  placeBet.classlist.add('place-bet');
+  placeBet.classList.add('place-bet');
   placeBet.addEventListener('click', () => {
     PubSub.publish("BetView:place_bet", this.betValue);
   });
   this.container.appendChild(placeBet);
 }
+
+BetView.prototype.renderCurrentBet = function (value) {
+  const currentBet = document.createElement("h4");
+  currentBet.textContent = `Current bet: ${value}`;
+  currentBet.classList.add('current-bet');
+  this.container.appendChild(currentBet);
+};
+
 
 module.exports = BetView;
