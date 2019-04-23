@@ -72,4 +72,11 @@ BetView.prototype.renderWallet = function (value) {
   this.container.appendChild(currentWallet);
 };
 
+PubSub.subscribe('Game:not-enough-money', (evt) => {
+  const insufficientFunds = document.createElement("h4");
+  insufficientFunds.textContent = evt.value;
+  insufficientFunds.classList.add('insufficient-funds');
+  this.container.appendChild(insufficientFunds);
+})
+
 module.exports = BetView;
