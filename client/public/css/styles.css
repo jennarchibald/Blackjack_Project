@@ -151,3 +151,10 @@ button.player-buttons:disabled {
 img.card-cover {
   z-index: 1;
 }
+
+.bet-buttons, .bet-buttons:hover {
+  border-radius: 50%;
+  height: 3em;
+  width: 3em;
+  border: 5px dashed black;
+}

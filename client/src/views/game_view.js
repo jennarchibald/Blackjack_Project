@@ -15,19 +15,19 @@ GameView.prototype.bindEvents = function (){
     const allHands = evt.detail;
     this.dealerHand = allHands.dealerHand;
     this.playerHand = allHands.playerHand;
-    this.createDealerHandView();
+    this.createDealerView();
     this.createResultView();
     this.createPlayerView();
   });
 };
 
-GameView.prototype.createDealerHandView = function(){
+GameView.prototype.createDealerView = function(){
   dealerContainer = document.createElement('div');
   dealerContainer.classList.add('dealer-view');
   this.container.appendChild(dealerContainer);
   dealerView = new DealerView(dealerContainer, this.dealerHand);
   dealerView.bindEvents();
-  dealerView.render();
+  dealerView.render(true);
 };
 
 GameView.prototype.createPlayerView = function(){
