@@ -158,3 +158,15 @@ img.card-cover {
   width: 3em;
   border: 5px dashed black;
 }
+
+a, a:hover {
+  color: white;
+  margin-left: 1em;
+}
+
+footer {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
