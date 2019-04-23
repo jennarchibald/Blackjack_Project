@@ -12,6 +12,7 @@ BetView.prototype.render = function () {
   this.renderBetButton(10);
   this.renderPlaceBet('Place Bet');
   this.renderCurrentBet(this.betValue)
+  this.renderReset('Reset Bet');
 };
 
 BetView.prototype.renderBetButton = function (value) {
@@ -41,6 +42,16 @@ BetView.prototype.renderCurrentBet = function (value) {
   currentBet.textContent = `Current bet: ${value}`;
   currentBet.classList.add('current-bet');
   this.container.appendChild(currentBet);
+};
+
+BetView.prototype.renderReset = function () {
+  const resetBet = document.createElement("button");
+  resetBet.textContent = `Reset Bet`;
+  resetBet.addEventListener('click', () => {
+    this.betValue = 0;
+    this.render();
+  });
+  this.container.appendChild(resetBet);
 };
 
 
