@@ -91,10 +91,10 @@ Game.prototype.determineWinner = function(){
   if (this.player.hand.checkForBust()){
     return "House wins"
   } else if (this.dealer.hand.checkForBust()){
-    return "Player wins";
+    return "You win";
   } else {
     if (playerHand > dealerHand) {
-      return "Player wins";
+      return "You win";
     } else if (dealerHand > playerHand){
       return "House wins"
     } else {
