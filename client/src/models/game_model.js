@@ -74,6 +74,7 @@ Game.prototype.dealersTurn = function () {
 
     this.dealCard('dealer');
     window.setTimeout(this.publishDealerCard, 1000)
+    this.publishDealerBust()
   } else {
     const result = this.determineWinner();
     window.setTimeout(() => {
@@ -85,6 +86,15 @@ Game.prototype.dealersTurn = function () {
 // publishes when the dealer has a new card
 Game.prototype.publishDealerCard = function (){
   PubSub.publish("Game:dealer-dealt-card");
+};
+
+Game.prototype.publishDealerBust = function (){
+
+  if (this.dealer.hand.checkForBust()){
+    window.setTimeout(() => {
+      PubSub.publish("Game:dealer-bust");
+    }, 1000)
+  }
 };
 
 
