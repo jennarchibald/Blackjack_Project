@@ -7,11 +7,13 @@ const Player = function(){
 };
 
 Player.prototype.placeBet = function(amount) {
-
+  this.wallet -= amount;
+  this.updateWallet();
 };
 
 Player.prototype.winMoney = function(amount){
-
+  this.wallet += amount;
+  this.updateWallet();
 };
 
 Player.prototype.updateWallet = function(){
