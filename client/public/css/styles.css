@@ -19,7 +19,7 @@ img {
 #game-container {
   margin: 1vh;
   background-color: green;
-  background-image: url("https://www.transparenttextures.com/patterns/green-fibers.png");
+  background-image: url("../images/green-fibers.png");
   border-radius: 10px;
   max-height: 98vh;
   overflow: hidden;
@@ -150,4 +150,23 @@ button.player-buttons:disabled {
 
 img.card-cover {
   z-index: 1;
+}
+
+.bet-buttons, .bet-buttons:hover {
+  border-radius: 50%;
+  height: 3em;
+  width: 3em;
+  border: 5px dashed black;
+}
+
+a, a:hover {
+  color: white;
+  margin-left: 1em;
+}
+
+footer {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }

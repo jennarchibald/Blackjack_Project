@@ -23,13 +23,13 @@ GameView.prototype.bindEvents = function (){
   });
 };
 
-GameView.prototype.createDealerHandView = function(){
+GameView.prototype.createDealerView = function(){
   dealerContainer = document.createElement('div');
   dealerContainer.classList.add('dealer-view');
   this.container.appendChild(dealerContainer);
   dealerView = new DealerView(dealerContainer, this.dealerHand);
   dealerView.bindEvents();
-  dealerView.render();
+  dealerView.render(true);
 };
 
 GameView.prototype.createPlayerView = function(){

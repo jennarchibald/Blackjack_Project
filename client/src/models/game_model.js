@@ -13,7 +13,7 @@ const Game = function(){
 };
 
 Game.prototype.bindEvents = function(){
-  PubSub.subscribe("ButtonsView:stick-clicked", (evt)=> {
+  PubSub.subscribe('DealerView:dealers-cards-revealed', (evt)=> {
     this.dealersTurn();
   });
   PubSub.subscribe("ButtonsView:hit-clicked", (evt) => {
@@ -21,8 +21,7 @@ Game.prototype.bindEvents = function(){
     PubSub.publish('Game:player-hand-ready', this.player.hand);
     if (this.player.hand.checkForBust()){
       PubSub.publish('Game:player-bust');
-      this.dealersTurn();
-    };
+    }
   });
   PubSub.subscribe('GameView:dealer-card-displayed', (evt) => {
     this.dealersTurn();
@@ -69,7 +68,9 @@ Game.prototype.openingDeal = function(){
 
 // plays the dealers turn
 Game.prototype.dealersTurn = function () {
+  // console.log(this.dealer.hand);
   if (this.dealer.hand.totalValue() < 17){
+
     this.dealCard('dealer');
     window.setTimeout(this.publishDealerCard, 1000)
   } else {
