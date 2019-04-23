@@ -22,6 +22,8 @@ PlayerView.prototype.render = function () {
   const totalContainer = this.makeContainer('player-total')
   const totalView = new TotalView(totalContainer, 'Player', this.hand.totalValue());
   totalView.render();
+  totalView.bindEvents();
+
 
   const handContainer = this.makeContainer('player-hand');
   const handView = new HandView(handContainer, this.hand);
