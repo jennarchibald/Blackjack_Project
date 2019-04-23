@@ -97,4 +97,12 @@ Game.prototype.determineWinner = function(){
   }
 };
 
+//When a bet is made
+Game.prototype.handleBet = function () {
+  PubSub.subscribe("BetView:place_bet", (evt, value) => {
+    
+  })
+}
+
+
 module.exports = Game;
