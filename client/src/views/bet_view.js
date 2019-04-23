@@ -3,6 +3,18 @@ const PubSub = require('../helpers/pub_sub.js');
 const BetView = function (container) {
   this.container = container;
   this.betValue = 0;
+  this.wallet = 0;
+};
+
+BetView.prototype.bindEvents = function () {
+  PubSub.subscribe('Game:wallet-updated', (evt) => {
+    this.wallet = evt.detail;
+    this.render();
+  });
+  PubSub.subscribe('Game:bet-changed', (evt) => {
+    this.betValue = evt.detail;
+    this.render();
+  });
 };
 
 BetView.prototype.render = function () {
@@ -11,7 +23,8 @@ BetView.prototype.render = function () {
   this.renderBetButton(5);
   this.renderBetButton(10);
   this.renderPlaceBet('Place Bet');
-  this.renderCurrentBet(this.betValue)
+  this.renderCurrentBet(this.betValue);
+  this.renderWallet(this.wallet);
   this.renderReset('Reset Bet');
 };
 
@@ -21,8 +34,7 @@ BetView.prototype.renderBetButton = function (value) {
   betButton.id = value;
   betButton.classList.add('bet-buttons')
   betButton.addEventListener('click', (evt) => {
-    this.betValue += parseInt(betButton.id, 10);
-    this.render();
+    PubSub.publish("BetView:bet-increased", betButton.id);
   });
   this.container.appendChild(betButton)
 }
@@ -32,7 +44,7 @@ BetView.prototype.renderPlaceBet = function (value) {
   placeBet.textContent = value;
   placeBet.classList.add('place-bet');
   placeBet.addEventListener('click', () => {
-    PubSub.publish("BetView:place_bet", this.betValue);
+    PubSub.publish("BetView:bet-placed", this.betValue);
   });
   this.container.appendChild(placeBet);
 }
@@ -48,11 +60,16 @@ BetView.prototype.renderReset = function () {
   const resetBet = document.createElement("button");
   resetBet.textContent = `Reset Bet`;
   resetBet.addEventListener('click', () => {
-    this.betValue = 0;
-    this.render();
+    PubSub.publish("BetView:reset-bet")
   });
   this.container.appendChild(resetBet);
 };
 
+BetView.prototype.renderWallet = function (value) {
+  const currentWallet = document.createElement("h4");
+  currentWallet.textContent = `Current Wallet: ${value}`;
+  currentWallet.classList.add('current-wallet');
+  this.container.appendChild(currentWallet);
+};
 
 module.exports = BetView;
