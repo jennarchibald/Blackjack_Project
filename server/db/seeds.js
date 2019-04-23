@@ -7,519 +7,519 @@ db.deck.insertMany([
 "code": "AS",
 "value": 11,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/AS.png",
-"svg": "https://deckofcardsapi.com/static/img/AS.svg"
+"png": "../../client/public/images/card_images/AS.png",
+"svg": "../../client/public/images/card_images/AS.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/AS.png"
+"image": "../../client/public/images/card_images/AS.png"
 },
 {
 "suit": "SPADES",
 "code": "2S",
 "value": 2,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/2S.png",
-"svg": "https://deckofcardsapi.com/static/img/2S.svg"
+"png": "../../client/public/images/card_images/2S.png",
+"svg": "../../client/public/images/card_images/2S.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/2S.png"
+"image": "../../client/public/images/card_images/2S.png"
 },
 {
 "suit": "SPADES",
 "code": "3S",
 "value": 3,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/3S.png",
-"svg": "https://deckofcardsapi.com/static/img/3S.svg"
+"png": "../../client/public/images/card_images/3S.png",
+"svg": "../../client/public/images/card_images/3S.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/3S.png"
+"image": "../../client/public/images/card_images/3S.png"
 },
 {
 "suit": "SPADES",
 "code": "4S",
 "value": 4,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/4S.png",
-"svg": "https://deckofcardsapi.com/static/img/4S.svg"
+"png": "../../client/public/images/card_images/4S.png",
+"svg": "../../client/public/images/card_images/4S.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/4S.png"
+"image": "../../client/public/images/card_images/4S.png"
 },
 {
 "suit": "SPADES",
 "code": "5S",
 "value": 5,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/5S.png",
-"svg": "https://deckofcardsapi.com/static/img/5S.svg"
+"png": "../../client/public/images/card_images/5S.png",
+"svg": "../../client/public/images/card_images/5S.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/5S.png"
+"image": "../../client/public/images/card_images/5S.png"
 },
 {
 "suit": "SPADES",
 "code": "6S",
 "value": 6,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/6S.png",
-"svg": "https://deckofcardsapi.com/static/img/6S.svg"
+"png": "../../client/public/images/card_images/6S.png",
+"svg": "../../client/public/images/card_images/6S.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/6S.png"
+"image": "../../client/public/images/card_images/6S.png"
 },
 {
 "suit": "SPADES",
 "code": "7S",
 "value": 7,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/7S.png",
-"svg": "https://deckofcardsapi.com/static/img/7S.svg"
+"png": "../../client/public/images/card_images/7S.png",
+"svg": "../../client/public/images/card_images/7S.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/7S.png"
+"image": "../../client/public/images/card_images/7S.png"
 },
 {
 "suit": "SPADES",
 "code": "8S",
 "value": 8,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/8S.png",
-"svg": "https://deckofcardsapi.com/static/img/8S.svg"
+"png": "../../client/public/images/card_images/8S.png",
+"svg": "../../client/public/images/card_images/8S.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/8S.png"
+"image": "../../client/public/images/card_images/8S.png"
 },
 {
 "suit": "SPADES",
 "code": "9S",
 "value": 9,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/9S.png",
-"svg": "https://deckofcardsapi.com/static/img/9S.svg"
+"png": "../../client/public/images/card_images/9S.png",
+"svg": "../../client/public/images/card_images/9S.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/9S.png"
+"image": "../../client/public/images/card_images/9S.png"
 },
 {
 "suit": "SPADES",
 "code": "0S",
 "value": 10,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/0S.png",
-"svg": "https://deckofcardsapi.com/static/img/0S.svg"
+"png": "../../client/public/images/card_images/0S.png",
+"svg": "../../client/public/images/card_images/0S.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/0S.png"
+"image": "../../client/public/images/card_images/0S.png"
 },
 {
 "suit": "SPADES",
 "code": "JS",
 "value": 10,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/JS.png",
-"svg": "https://deckofcardsapi.com/static/img/JS.svg"
+"png": "../../client/public/images/card_images/JS.png",
+"svg": "../../client/public/images/card_images/JS.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/JS.png"
+"image": "../../client/public/images/card_images/JS.png"
 },
 {
 "suit": "SPADES",
 "code": "QS",
 "value": 10,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/QS.png",
-"svg": "https://deckofcardsapi.com/static/img/QS.svg"
+"png": "../../client/public/images/card_images/QS.png",
+"svg": "../../client/public/images/card_images/QS.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/QS.png"
+"image": "../../client/public/images/card_images/QS.png"
 },
 {
 "suit": "SPADES",
 "code": "KS",
 "value": 10,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/KS.png",
-"svg": "https://deckofcardsapi.com/static/img/KS.svg"
+"png": "../../client/public/images/card_images/KS.png",
+"svg": "../../client/public/images/card_images/KS.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/KS.png"
+"image": "../../client/public/images/card_images/KS.png"
 },
 {
 "suit": "DIAMONDS",
 "code": "AD",
 "value": 11,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/AD.png",
-"svg": "https://deckofcardsapi.com/static/img/AD.svg"
+"png": "../../client/public/images/card_images/AD.png",
+"svg": "../../client/public/images/card_images/AD.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/aceDiamonds.png"
+"image": "../../client/public/images/card_images/aceDiamonds.png"
 },
 {
 "suit": "DIAMONDS",
 "code": "2D",
 "value": 2,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/2D.png",
-"svg": "https://deckofcardsapi.com/static/img/2D.svg"
+"png": "../../client/public/images/card_images/2D.png",
+"svg": "../../client/public/images/card_images/2D.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/2D.png"
+"image": "../../client/public/images/card_images/2D.png"
 },
 {
 "suit": "DIAMONDS",
 "code": "3D",
 "value": 3,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/3D.png",
-"svg": "https://deckofcardsapi.com/static/img/3D.svg"
+"png": "../../client/public/images/card_images/3D.png",
+"svg": "../../client/public/images/card_images/3D.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/3D.png"
+"image": "../../client/public/images/card_images/3D.png"
 },
 {
 "suit": "DIAMONDS",
 "code": "4D",
 "value": 4,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/4D.png",
-"svg": "https://deckofcardsapi.com/static/img/4D.svg"
+"png": "../../client/public/images/card_images/4D.png",
+"svg": "../../client/public/images/card_images/4D.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/4D.png"
+"image": "../../client/public/images/card_images/4D.png"
 },
 {
 "suit": "DIAMONDS",
 "code": "5D",
 "value": 5,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/5D.png",
-"svg": "https://deckofcardsapi.com/static/img/5D.svg"
+"png": "../../client/public/images/card_images/5D.png",
+"svg": "../../client/public/images/card_images/5D.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/5D.png"
+"image": "../../client/public/images/card_images/5D.png"
 },
 {
 "suit": "DIAMONDS",
 "code": "6D",
 "value": 6,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/6D.png",
-"svg": "https://deckofcardsapi.com/static/img/6D.svg"
+"png": "../../client/public/images/card_images/6D.png",
+"svg": "../../client/public/images/card_images/6D.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/6D.png"
+"image": "../../client/public/images/card_images/6D.png"
 },
 {
 "suit": "DIAMONDS",
 "code": "7D",
 "value": 7,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/7D.png",
-"svg": "https://deckofcardsapi.com/static/img/7D.svg"
+"png": "../../client/public/images/card_images/7D.png",
+"svg": "../../client/public/images/card_images/7D.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/7D.png"
+"image": "../../client/public/images/card_images/7D.png"
 },
 {
 "suit": "DIAMONDS",
 "code": "8D",
 "value": 8,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/8D.png",
-"svg": "https://deckofcardsapi.com/static/img/8D.svg"
+"png": "../../client/public/images/card_images/8D.png",
+"svg": "../../client/public/images/card_images/8D.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/8D.png"
+"image": "../../client/public/images/card_images/8D.png"
 },
 {
 "suit": "DIAMONDS",
 "code": "9D",
 "value": 9,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/9D.png",
-"svg": "https://deckofcardsapi.com/static/img/9D.svg"
+"png": "../../client/public/images/card_images/9D.png",
+"svg": "../../client/public/images/card_images/9D.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/9D.png"
+"image": "../../client/public/images/card_images/9D.png"
 },
 {
 "suit": "DIAMONDS",
 "code": "0D",
 "value": 10,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/0D.png",
-"svg": "https://deckofcardsapi.com/static/img/0D.svg"
+"png": "../../client/public/images/card_images/0D.png",
+"svg": "../../client/public/images/card_images/0D.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/0D.png"
+"image": "../../client/public/images/card_images/0D.png"
 },
 {
 "suit": "DIAMONDS",
 "code": "JD",
 "value": 10,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/JD.png",
-"svg": "https://deckofcardsapi.com/static/img/JD.svg"
+"png": "../../client/public/images/card_images/JD.png",
+"svg": "../../client/public/images/card_images/JD.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/JD.png"
+"image": "../../client/public/images/card_images/JD.png"
 },
 {
 "suit": "DIAMONDS",
 "code": "QD",
 "value": 10,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/QD.png",
-"svg": "https://deckofcardsapi.com/static/img/QD.svg"
+"png": "../../client/public/images/card_images/QD.png",
+"svg": "../../client/public/images/card_images/QD.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/QD.png"
+"image": "../../client/public/images/card_images/QD.png"
 },
 {
 "suit": "DIAMONDS",
 "code": "KD",
 "value": 10,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/KD.png",
-"svg": "https://deckofcardsapi.com/static/img/KD.svg"
+"png": "../../client/public/images/card_images/KD.png",
+"svg": "../../client/public/images/card_images/KD.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/KD.png"
+"image": "../../client/public/images/card_images/KD.png"
 },
 {
 "suit": "CLUBS",
 "code": "AC",
 "value": 11,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/AC.png",
-"svg": "https://deckofcardsapi.com/static/img/AC.svg"
+"png": "../../client/public/images/card_images/AC.png",
+"svg": "../../client/public/images/card_images/AC.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/AC.png"
+"image": "../../client/public/images/card_images/AC.png"
 },
 {
 "suit": "CLUBS",
 "code": "2C",
 "value": 2,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/2C.png",
-"svg": "https://deckofcardsapi.com/static/img/2C.svg"
+"png": "../../client/public/images/card_images/2C.png",
+"svg": "../../client/public/images/card_images/2C.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/2C.png"
+"image": "../../client/public/images/card_images/2C.png"
 },
 {
 "suit": "CLUBS",
 "code": "3C",
 "value": 3,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/3C.png",
-"svg": "https://deckofcardsapi.com/static/img/3C.svg"
+"png": "../../client/public/images/card_images/3C.png",
+"svg": "../../client/public/images/card_images/3C.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/3C.png"
+"image": "../../client/public/images/card_images/3C.png"
 },
 {
 "suit": "CLUBS",
 "code": "4C",
 "value": 4,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/4C.png",
-"svg": "https://deckofcardsapi.com/static/img/4C.svg"
+"png": "../../client/public/images/card_images/4C.png",
+"svg": "../../client/public/images/card_images/4C.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/4C.png"
+"image": "../../client/public/images/card_images/4C.png"
 },
 {
 "suit": "CLUBS",
 "code": "5C",
 "value": 5,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/5C.png",
-"svg": "https://deckofcardsapi.com/static/img/5C.svg"
+"png": "../../client/public/images/card_images/5C.png",
+"svg": "../../client/public/images/card_images/5C.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/5C.png"
+"image": "../../client/public/images/card_images/5C.png"
 },
 {
 "suit": "CLUBS",
 "code": "6C",
 "value": 6,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/6C.png",
-"svg": "https://deckofcardsapi.com/static/img/6C.svg"
+"png": "../../client/public/images/card_images/6C.png",
+"svg": "../../client/public/images/card_images/6C.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/6C.png"
+"image": "../../client/public/images/card_images/6C.png"
 },
 {
 "suit": "CLUBS",
 "code": "7C",
 "value": 7,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/7C.png",
-"svg": "https://deckofcardsapi.com/static/img/7C.svg"
+"png": "../../client/public/images/card_images/7C.png",
+"svg": "../../client/public/images/card_images/7C.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/7C.png"
+"image": "../../client/public/images/card_images/7C.png"
 },
 {
 "suit": "CLUBS",
 "code": "8C",
 "value": 8,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/8C.png",
-"svg": "https://deckofcardsapi.com/static/img/8C.svg"
+"png": "../../client/public/images/card_images/8C.png",
+"svg": "../../client/public/images/card_images/8C.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/8C.png"
+"image": "../../client/public/images/card_images/8C.png"
 },
 {
 "suit": "CLUBS",
 "code": "9C",
 "value": 9,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/9C.png",
-"svg": "https://deckofcardsapi.com/static/img/9C.svg"
+"png": "../../client/public/images/card_images/9C.png",
+"svg": "../../client/public/images/card_images/9C.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/9C.png"
+"image": "../../client/public/images/card_images/9C.png"
 },
 {
 "suit": "CLUBS",
 "code": "0C",
 "value": 10,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/0C.png",
-"svg": "https://deckofcardsapi.com/static/img/0C.svg"
+"png": "../../client/public/images/card_images/0C.png",
+"svg": "../../client/public/images/card_images/0C.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/0C.png"
+"image": "../../client/public/images/card_images/0C.png"
 },
 {
 "suit": "CLUBS",
 "code": "JC",
 "value": 10,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/JC.png",
-"svg": "https://deckofcardsapi.com/static/img/JC.svg"
+"png": "../../client/public/images/card_images/JC.png",
+"svg": "../../client/public/images/card_images/JC.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/JC.png"
+"image": "../../client/public/images/card_images/JC.png"
 },
 {
 "suit": "CLUBS",
 "code": "QC",
 "value": 10,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/QC.png",
-"svg": "https://deckofcardsapi.com/static/img/QC.svg"
+"png": "../../client/public/images/card_images/QC.png",
+"svg": "../../client/public/images/card_images/QC.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/QC.png"
+"image": "../../client/public/images/card_images/QC.png"
 },
 {
 "suit": "CLUBS",
 "code": "KC",
 "value": 10,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/KC.png",
-"svg": "https://deckofcardsapi.com/static/img/KC.svg"
+"png": "../../client/public/images/card_images/KC.png",
+"svg": "../../client/public/images/card_images/KC.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/KC.png"
+"image": "../../client/public/images/card_images/KC.png"
 },
 {
 "suit": "HEARTS",
 "code": "AH",
 "value": 11,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/AH.png",
-"svg": "https://deckofcardsapi.com/static/img/AH.svg"
+"png": "../../client/public/images/card_images/AH.png",
+"svg": "../../client/public/images/card_images/AH.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/AH.png"
+"image": "../../client/public/images/card_images/AH.png"
 },
 {
 "suit": "HEARTS",
 "code": "2H",
 "value": 2,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/2H.png",
-"svg": "https://deckofcardsapi.com/static/img/2H.svg"
+"png": "../../client/public/images/card_images/2H.png",
+"svg": "../../client/public/images/card_images/2H.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/2H.png"
+"image": "../../client/public/images/card_images/2H.png"
 },
 {
 "suit": "HEARTS",
 "code": "3H",
 "value": 3,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/3H.png",
-"svg": "https://deckofcardsapi.com/static/img/3H.svg"
+"png": "../../client/public/images/card_images/3H.png",
+"svg": "../../client/public/images/card_images/3H.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/3H.png"
+"image": "../../client/public/images/card_images/3H.png"
 },
 {
 "suit": "HEARTS",
 "code": "4H",
 "value": 4,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/4H.png",
-"svg": "https://deckofcardsapi.com/static/img/4H.svg"
+"png": "../../client/public/images/card_images/4H.png",
+"svg": "../../client/public/images/card_images/4H.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/4H.png"
+"image": "../../client/public/images/card_images/4H.png"
 },
 {
 "suit": "HEARTS",
 "code": "5H",
 "value": 5,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/5H.png",
-"svg": "https://deckofcardsapi.com/static/img/5H.svg"
+"png": "../../client/public/images/card_images/5H.png",
+"svg": "../../client/public/images/card_images/5H.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/5H.png"
+"image": "../../client/public/images/card_images/5H.png"
 },
 {
 "suit": "HEARTS",
 "code": "6H",
 "value": 6,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/6H.png",
-"svg": "https://deckofcardsapi.com/static/img/6H.svg"
+"png": "../../client/public/images/card_images/6H.png",
+"svg": "../../client/public/images/card_images/6H.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/6H.png"
+"image": "../../client/public/images/card_images/6H.png"
 },
 {
 "suit": "HEARTS",
 "code": "7H",
 "value": 7,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/7H.png",
-"svg": "https://deckofcardsapi.com/static/img/7H.svg"
+"png": "../../client/public/images/card_images/7H.png",
+"svg": "../../client/public/images/card_images/7H.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/7H.png"
+"image": "../../client/public/images/card_images/7H.png"
 },
 {
 "suit": "HEARTS",
 "code": "8H",
 "value": 8,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/8H.png",
-"svg": "https://deckofcardsapi.com/static/img/8H.svg"
+"png": "../../client/public/images/card_images/8H.png",
+"svg": "../../client/public/images/card_images/8H.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/8H.png"
+"image": "../../client/public/images/card_images/8H.png"
 },
 {
 "suit": "HEARTS",
 "code": "9H",
 "value": 9,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/9H.png",
-"svg": "https://deckofcardsapi.com/static/img/9H.svg"
+"png": "../../client/public/images/card_images/9H.png",
+"svg": "../../client/public/images/card_images/9H.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/9H.png"
+"image": "../../client/public/images/card_images/9H.png"
 },
 {
 "suit": "HEARTS",
 "code": "0H",
 "value": 10,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/0H.png",
-"svg": "https://deckofcardsapi.com/static/img/0H.svg"
+"png": "../../client/public/images/card_images/0H.png",
+"svg": "../../client/public/images/card_images/0H.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/0H.png"
+"image": "../../client/public/images/card_images/0H.png"
 },
 {
 "suit": "HEARTS",
 "code": "JH",
 "value": 10,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/JH.png",
-"svg": "https://deckofcardsapi.com/static/img/JH.svg"
+"png": "../../client/public/images/card_images/JH.png",
+"svg": "../../client/public/images/card_images/JH.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/JH.png"
+"image": "../../client/public/images/card_images/JH.png"
 },
 {
 "suit": "HEARTS",
 "code": "QH",
 "value": 10,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/QH.png",
-"svg": "https://deckofcardsapi.com/static/img/QH.svg"
+"png": "../../client/public/images/card_images/QH.png",
+"svg": "../../client/public/images/card_images/QH.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/QH.png"
+"image": "../../client/public/images/card_images/QH.png"
 },
 {
 "suit": "HEARTS",
 "code": "KH",
 "value": 10,
 "images": {
-"png": "https://deckofcardsapi.com/static/img/KH.png",
-"svg": "https://deckofcardsapi.com/static/img/KH.svg"
+"png": "../../client/public/images/card_images/KH.png",
+"svg": "../../client/public/images/card_images/KH.svg"
 },
-"image": "https://deckofcardsapi.com/static/img/KH.png"
+"image": "../../client/public/images/card_images/KH.png"
 }
 ]);
