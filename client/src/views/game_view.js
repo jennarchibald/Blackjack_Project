@@ -7,14 +7,16 @@ const DealerView = require('./dealer_view.js');
 const GameView = function(container){
   this.container = container
   this.dealerHand = null
+  this.player = null
   this.playerHand = null
 };
 
 GameView.prototype.bindEvents = function (){
   PubSub.subscribe('Game:hands-ready', (evt) => {
-    const allHands = evt.detail;
-    this.dealerHand = allHands.dealerHand;
-    this.playerHand = allHands.playerHand;
+    const bothParticipants = evt.detail;
+    this.dealerHand = bothParticipants.dealerHand;
+    this.player = bothParticipants.player;
+    this.playerHand = this.player.hand;
     this.createDealerHandView();
     this.createResultView();
     this.createPlayerView();
@@ -34,7 +36,7 @@ GameView.prototype.createPlayerView = function(){
   playerContainer = document.createElement('div');
   playerContainer.classList.add('player-view');
   this.container.appendChild(playerContainer);
-  playerView = new PlayerView(playerContainer, this.playerHand);
+  playerView = new PlayerView(playerContainer, this.player, this.playerHand);
   playerView.render();
   playerView.bindEvents();
 };

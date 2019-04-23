@@ -1,18 +1,20 @@
 const PubSub = require('../helpers/pub_sub.js');
 
-const BetView = function (container) {
+const BetView = function (container, player) {
   this.container = container;
   this.betValue = 0;
-  this.wallet = 0;
+  this.wallet = player.wallet
 };
 
 BetView.prototype.bindEvents = function () {
   PubSub.subscribe('Game:wallet-updated', (evt) => {
-    this.wallet = evt.detail;
+    const walletAmount = evt.detail
+    this.wallet = parseInt(walletAmount, 10);
     this.render();
   });
   PubSub.subscribe('Game:bet-changed', (evt) => {
-    this.betValue = evt.detail;
+    const betAmount = evt.detail
+    this.betValue += parseInt(betAmount, 10);
     this.render();
   });
 };
@@ -73,7 +75,7 @@ BetView.prototype.renderWallet = function (value) {
 };
 
 BetView.prototype.insufficientFunds = function(){
-PubSub.subscribe('Game:not-enough-money', (evt) => {
+  PubSub.subscribe('Game:not-enough-money', (evt) => {
   const insufficientFunds = document.createElement("h4");
   insufficientFunds.textContent = evt.value;
   insufficientFunds.classList.add('insufficient-funds');

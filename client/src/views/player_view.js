@@ -4,8 +4,9 @@ const TotalView = require('./total_view.js');
 const BetView = require('./bet_view.js');
 const PubSub = require('../helpers/pub_sub.js');
 
-const PlayerView = function(container, hand){
+const PlayerView = function(container, player, hand){
   this.container = container;
+  this.player = player;
   this.hand = hand;
 };
 
@@ -32,7 +33,7 @@ PlayerView.prototype.render = function () {
   buttonsView.bindEvents();
 
   const betContainer = this.makeContainer('bets');
-  const betView = new BetView(betContainer);
+  const betView = new BetView(betContainer, this.player);
   betView.bindEvents();
   betView.render();
 };

@@ -37,6 +37,7 @@ Game.prototype.bindEvents = function(){
   PubSub.subscribe("BetView:bet-placed", (evt) => {
     this.actualBet = evt.detail;
     this.player.placeBet(this.actualBet);
+    PubSub.publish('Game:wallet-updated', this.player.wallet);
   })
 };
 
@@ -51,7 +52,7 @@ Game.prototype.getDeck = function () {
   request.get().then((cards) => {
     this.deck.cards = cards;
     this.openingDeal();
-    PubSub.publish('Game:hands-ready', { dealerHand: this.dealer.hand, playerHand: this.player.hand});
+    PubSub.publish('Game:hands-ready', { dealerHand: this.dealer.hand, player: this.player});
   }).catch((err) => console.error(err));
 };
 
