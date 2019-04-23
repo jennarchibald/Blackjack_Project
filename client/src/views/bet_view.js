@@ -11,16 +11,17 @@ BetView.prototype.render = function () {
   this.renderBetButton(5);
   this.renderBetButton(10);
   this.renderPlaceBet('Place Bet');
+  this.renderCurrentBet(this.betValue)
 };
 
 BetView.prototype.renderBetButton = function (value) {
   const betButton = document.createElement("button");
   betButton.textContent = value;
-  betButton.value = value;
+  betButton.id = value;
   betButton.classList.add('bet-buttons')
-  betButton.addEventListener('click', () => {
-    this.betValue += number(betButton.value);
-    this.renderCurrentBet(this.betValue);
+  betButton.addEventListener('click', (evt) => {
+    this.betValue += parseInt(betButton.id, 10);
+    this.render();
   });
   this.container.appendChild(betButton)
 }
