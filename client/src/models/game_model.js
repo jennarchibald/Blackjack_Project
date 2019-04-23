@@ -8,33 +8,42 @@ const Game = function(){
   this.deck = null
   this.player = null
   this.dealer = {hand: null}
+  this.intendedBet = null
+  this.actualBet = null
 };
 
 Game.prototype.bindEvents = function(){
   PubSub.subscribe("ButtonsView:stick-clicked", (evt)=> {
     this.dealersTurn();
-
   });
   PubSub.subscribe("ButtonsView:hit-clicked", (evt) => {
-
     this.dealCard('player');
     PubSub.publish('Game:player-hand-ready', this.player.hand);
-
     if (this.player.hand.checkForBust()){
       PubSub.publish('Game:player-bust');
       this.dealersTurn();
-    }
+    };
   });
-
   PubSub.subscribe('GameView:dealer-card-displayed', (evt) => {
     this.dealersTurn();
+  });
+  PubSub.subscribe("BetView:bet-increased", (evt) => {
+    this.intendedBet = evt.detail;
+    this.checkMoneyForBet();
+  });
+  PubSub.subscribe("BetView:reset-bet", (evt) => {
+    this.resetBet();
+  });
+  PubSub.subscribe("BetView:bet-placed", (evt) => {
+    this.actualBet = evt.detail;
+    this.player.placeBet(this.actualBet);
   })
-}
+};
 
 Game.prototype.newPlayer = function() {
   this.player = new Player();
-  this.player.save()
-}
+  this.player.save();
+};
 
 Game.prototype.getDeck = function () {
   this.deck = new Deck;
@@ -55,7 +64,7 @@ Game.prototype.openingDeal = function(){
   this.dealCard('dealer');
   this.dealCard('player');
   this.dealCard('dealer');
-}
+};
 
 // plays the dealers turn
 Game.prototype.dealersTurn = function () {
@@ -103,12 +112,19 @@ Game.prototype.determineWinner = function(){
   }
 };
 
-//When a bet is made
-Game.prototype.handleBet = function () {
-  PubSub.subscribe("BetView:place_bet", (evt, value) => {
+Game.prototype.checkMoneyForBet = function (){
+    if (this.player.wallet > this.intendedBet) {
+      PubSub.publish('Game:bet-changed', this.intendedBet)
+    } else {
+      PubSub.publish('Game:not-enough-money', "You don't have enough money in your wallet");
+    };
+  };
 
-  })
-}
+  Game.prototype.resetBet = function (){
+    this.intendedBet = 0;
+    PubSub.publish('Game:bet-changed', this.intendedBet);
+  }
+
 
 
 module.exports = Game;
