@@ -17,7 +17,7 @@ GameView.prototype.bindEvents = function (){
     this.dealerHand = bothParticipants.dealerHand;
     this.player = bothParticipants.player;
     this.playerHand = this.player.hand;
-    this.createDealerHandView();
+    this.createDealerView();
     this.createResultView();
     this.createPlayerView();
   });
