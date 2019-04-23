@@ -32,6 +32,7 @@ div.dealer-view {
   display: grid;
   grid-template-columns:30vw 40vw 30vw;
   height: 30vh;
+  margin-top: 3vh;
 }
 
 div.player-view {
@@ -56,20 +57,28 @@ div.dealer-hand, div.player-hand{
   display: flex;
   max-width: 30vw;
   max-height: 30vh;
-  justify-self: center;
+  /* justify-content: center; */
 }
 
-.dealer-total {
+.dealer-total, .player-total {
   position: relative;
   float: left;
   text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 40px;
+  border: 1px solid white;
+  border-radius: 8px;
 }
 
-.player-total {
+/* .player-total {
   position: relative;
   float: left;
   text-align: center;
-}
+} */
 
 .card-wrapper{
   overflow: hidden;
@@ -136,4 +145,8 @@ button.player-buttons:disabled {
   justify-self: center;
   grid-row: 2 / span 1;
   grid-column: 2 / span 1;
+}
+
+img.card-cover {
+  z-index: 1;
 }
