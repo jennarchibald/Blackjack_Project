@@ -20,7 +20,7 @@ Player.prototype.updateWallet = function(){
   const request = new RequestHelper(`http://localhost:3000/api/players/${this.id}`)
   request.put({"wallet": this.wallet})
   .then((player) => {
-    this.wallet = player.wallet();
+    this.wallet = player.wallet;
   })
   .catch(console.error);
 };

@@ -33,6 +33,7 @@ PlayerView.prototype.render = function () {
 
   const betContainer = this.makeContainer('bets');
   const betView = new BetView(betContainer);
+  betView.bindEvents();
   betView.render();
 };
 
