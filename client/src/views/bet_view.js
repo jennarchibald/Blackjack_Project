@@ -19,11 +19,8 @@ BetView.prototype.renderBetButton = function (value) {
   betButton.value = value;
   betButton.classList.add('bet-buttons')
   betButton.addEventListener('click', () => {
-    this.betValue += betButton.value;
-<<<<<<< HEAD
-    this.renderCurrentBet(betbutton.value);
-=======
->>>>>>> 54991d50da5adb5cbd1aa19dd539b211f9af0850
+    this.betValue += number(betButton.value);
+    this.renderCurrentBet(this.betValue);
   });
   this.container.appendChild(betButton)
 }
