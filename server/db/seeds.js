@@ -7,519 +7,519 @@ db.deck.insertMany([
 "code": "AS",
 "value": 11,
 "images": {
-"png": "../../client/public/images/card_images/AS.png",
-"svg": "../../client/public/images/card_images/AS.svg"
+"png": "images/card_images/AS.png",
+"svg": "images/card_images/AS.svg"
 },
-"image": "../../client/public/images/card_images/AS.png"
+"image": "images/card_images/AS.png"
 },
 {
 "suit": "SPADES",
 "code": "2S",
 "value": 2,
 "images": {
-"png": "../../client/public/images/card_images/2S.png",
-"svg": "../../client/public/images/card_images/2S.svg"
+"png": "images/card_images/2S.png",
+"svg": "images/card_images/2S.svg"
 },
-"image": "../../client/public/images/card_images/2S.png"
+"image": "images/card_images/2S.png"
 },
 {
 "suit": "SPADES",
 "code": "3S",
 "value": 3,
 "images": {
-"png": "../../client/public/images/card_images/3S.png",
-"svg": "../../client/public/images/card_images/3S.svg"
+"png": "images/card_images/3S.png",
+"svg": "images/card_images/3S.svg"
 },
-"image": "../../client/public/images/card_images/3S.png"
+"image": "images/card_images/3S.png"
 },
 {
 "suit": "SPADES",
 "code": "4S",
 "value": 4,
 "images": {
-"png": "../../client/public/images/card_images/4S.png",
-"svg": "../../client/public/images/card_images/4S.svg"
+"png": "images/card_images/4S.png",
+"svg": "images/card_images/4S.svg"
 },
-"image": "../../client/public/images/card_images/4S.png"
+"image": "images/card_images/4S.png"
 },
 {
 "suit": "SPADES",
 "code": "5S",
 "value": 5,
 "images": {
-"png": "../../client/public/images/card_images/5S.png",
-"svg": "../../client/public/images/card_images/5S.svg"
+"png": "images/card_images/5S.png",
+"svg": "images/card_images/5S.svg"
 },
-"image": "../../client/public/images/card_images/5S.png"
+"image": "images/card_images/5S.png"
 },
 {
 "suit": "SPADES",
 "code": "6S",
 "value": 6,
 "images": {
-"png": "../../client/public/images/card_images/6S.png",
-"svg": "../../client/public/images/card_images/6S.svg"
+"png": "images/card_images/6S.png",
+"svg": "images/card_images/6S.svg"
 },
-"image": "../../client/public/images/card_images/6S.png"
+"image": "images/card_images/6S.png"
 },
 {
 "suit": "SPADES",
 "code": "7S",
 "value": 7,
 "images": {
-"png": "../../client/public/images/card_images/7S.png",
-"svg": "../../client/public/images/card_images/7S.svg"
+"png": "images/card_images/7S.png",
+"svg": "images/card_images/7S.svg"
 },
-"image": "../../client/public/images/card_images/7S.png"
+"image": "images/card_images/7S.png"
 },
 {
 "suit": "SPADES",
 "code": "8S",
 "value": 8,
 "images": {
-"png": "../../client/public/images/card_images/8S.png",
-"svg": "../../client/public/images/card_images/8S.svg"
+"png": "images/card_images/8S.png",
+"svg": "images/card_images/8S.svg"
 },
-"image": "../../client/public/images/card_images/8S.png"
+"image": "images/card_images/8S.png"
 },
 {
 "suit": "SPADES",
 "code": "9S",
 "value": 9,
 "images": {
-"png": "../../client/public/images/card_images/9S.png",
-"svg": "../../client/public/images/card_images/9S.svg"
+"png": "images/card_images/9S.png",
+"svg": "images/card_images/9S.svg"
 },
-"image": "../../client/public/images/card_images/9S.png"
+"image": "images/card_images/9S.png"
 },
 {
 "suit": "SPADES",
 "code": "0S",
 "value": 10,
 "images": {
-"png": "../../client/public/images/card_images/0S.png",
-"svg": "../../client/public/images/card_images/0S.svg"
+"png": "images/card_images/0S.png",
+"svg": "images/card_images/0S.svg"
 },
-"image": "../../client/public/images/card_images/0S.png"
+"image": "images/card_images/0S.png"
 },
 {
 "suit": "SPADES",
 "code": "JS",
 "value": 10,
 "images": {
-"png": "../../client/public/images/card_images/JS.png",
-"svg": "../../client/public/images/card_images/JS.svg"
+"png": "images/card_images/JS.png",
+"svg": "images/card_images/JS.svg"
 },
-"image": "../../client/public/images/card_images/JS.png"
+"image": "images/card_images/JS.png"
 },
 {
 "suit": "SPADES",
 "code": "QS",
 "value": 10,
 "images": {
-"png": "../../client/public/images/card_images/QS.png",
-"svg": "../../client/public/images/card_images/QS.svg"
+"png": "images/card_images/QS.png",
+"svg": "images/card_images/QS.svg"
 },
-"image": "../../client/public/images/card_images/QS.png"
+"image": "images/card_images/QS.png"
 },
 {
 "suit": "SPADES",
 "code": "KS",
 "value": 10,
 "images": {
-"png": "../../client/public/images/card_images/KS.png",
-"svg": "../../client/public/images/card_images/KS.svg"
+"png": "images/card_images/KS.png",
+"svg": "images/card_images/KS.svg"
 },
-"image": "../../client/public/images/card_images/KS.png"
+"image": "images/card_images/KS.png"
 },
 {
 "suit": "DIAMONDS",
 "code": "AD",
 "value": 11,
 "images": {
-"png": "../../client/public/images/card_images/AD.png",
-"svg": "../../client/public/images/card_images/AD.svg"
+"png": "images/card_images/AD.png",
+"svg": "images/card_images/AD.svg"
 },
-"image": "../../client/public/images/card_images/aceDiamonds.png"
+"image": "images/card_images/aceDiamonds.png"
 },
 {
 "suit": "DIAMONDS",
 "code": "2D",
 "value": 2,
 "images": {
-"png": "../../client/public/images/card_images/2D.png",
-"svg": "../../client/public/images/card_images/2D.svg"
+"png": "images/card_images/2D.png",
+"svg": "images/card_images/2D.svg"
 },
-"image": "../../client/public/images/card_images/2D.png"
+"image": "images/card_images/2D.png"
 },
 {
 "suit": "DIAMONDS",
 "code": "3D",
 "value": 3,
 "images": {
-"png": "../../client/public/images/card_images/3D.png",
-"svg": "../../client/public/images/card_images/3D.svg"
+"png": "images/card_images/3D.png",
+"svg": "images/card_images/3D.svg"
 },
-"image": "../../client/public/images/card_images/3D.png"
+"image": "images/card_images/3D.png"
 },
 {
 "suit": "DIAMONDS",
 "code": "4D",
 "value": 4,
 "images": {
-"png": "../../client/public/images/card_images/4D.png",
-"svg": "../../client/public/images/card_images/4D.svg"
+"png": "images/card_images/4D.png",
+"svg": "images/card_images/4D.svg"
 },
-"image": "../../client/public/images/card_images/4D.png"
+"image": "images/card_images/4D.png"
 },
 {
 "suit": "DIAMONDS",
 "code": "5D",
 "value": 5,
 "images": {
-"png": "../../client/public/images/card_images/5D.png",
-"svg": "../../client/public/images/card_images/5D.svg"
+"png": "images/card_images/5D.png",
+"svg": "images/card_images/5D.svg"
 },
-"image": "../../client/public/images/card_images/5D.png"
+"image": "images/card_images/5D.png"
 },
 {
 "suit": "DIAMONDS",
 "code": "6D",
 "value": 6,
 "images": {
-"png": "../../client/public/images/card_images/6D.png",
-"svg": "../../client/public/images/card_images/6D.svg"
+"png": "images/card_images/6D.png",
+"svg": "images/card_images/6D.svg"
 },
-"image": "../../client/public/images/card_images/6D.png"
+"image": "images/card_images/6D.png"
 },
 {
 "suit": "DIAMONDS",
 "code": "7D",
 "value": 7,
 "images": {
-"png": "../../client/public/images/card_images/7D.png",
-"svg": "../../client/public/images/card_images/7D.svg"
+"png": "images/card_images/7D.png",
+"svg": "images/card_images/7D.svg"
 },
-"image": "../../client/public/images/card_images/7D.png"
+"image": "images/card_images/7D.png"
 },
 {
 "suit": "DIAMONDS",
 "code": "8D",
 "value": 8,
 "images": {
-"png": "../../client/public/images/card_images/8D.png",
-"svg": "../../client/public/images/card_images/8D.svg"
+"png": "images/card_images/8D.png",
+"svg": "images/card_images/8D.svg"
 },
-"image": "../../client/public/images/card_images/8D.png"
+"image": "images/card_images/8D.png"
 },
 {
 "suit": "DIAMONDS",
 "code": "9D",
 "value": 9,
 "images": {
-"png": "../../client/public/images/card_images/9D.png",
-"svg": "../../client/public/images/card_images/9D.svg"
+"png": "images/card_images/9D.png",
+"svg": "images/card_images/9D.svg"
 },
-"image": "../../client/public/images/card_images/9D.png"
+"image": "images/card_images/9D.png"
 },
 {
 "suit": "DIAMONDS",
 "code": "0D",
 "value": 10,
 "images": {
-"png": "../../client/public/images/card_images/0D.png",
-"svg": "../../client/public/images/card_images/0D.svg"
+"png": "images/card_images/0D.png",
+"svg": "images/card_images/0D.svg"
 },
-"image": "../../client/public/images/card_images/0D.png"
+"image": "images/card_images/0D.png"
 },
 {
 "suit": "DIAMONDS",
 "code": "JD",
 "value": 10,
 "images": {
-"png": "../../client/public/images/card_images/JD.png",
-"svg": "../../client/public/images/card_images/JD.svg"
+"png": "images/card_images/JD.png",
+"svg": "images/card_images/JD.svg"
 },
-"image": "../../client/public/images/card_images/JD.png"
+"image": "images/card_images/JD.png"
 },
 {
 "suit": "DIAMONDS",
 "code": "QD",
 "value": 10,
 "images": {
-"png": "../../client/public/images/card_images/QD.png",
-"svg": "../../client/public/images/card_images/QD.svg"
+"png": "images/card_images/QD.png",
+"svg": "images/card_images/QD.svg"
 },
-"image": "../../client/public/images/card_images/QD.png"
+"image": "images/card_images/QD.png"
 },
 {
 "suit": "DIAMONDS",
 "code": "KD",
 "value": 10,
 "images": {
-"png": "../../client/public/images/card_images/KD.png",
-"svg": "../../client/public/images/card_images/KD.svg"
+"png": "images/card_images/KD.png",
+"svg": "images/card_images/KD.svg"
 },
-"image": "../../client/public/images/card_images/KD.png"
+"image": "images/card_images/KD.png"
 },
 {
 "suit": "CLUBS",
 "code": "AC",
 "value": 11,
 "images": {
-"png": "../../client/public/images/card_images/AC.png",
-"svg": "../../client/public/images/card_images/AC.svg"
+"png": "images/card_images/AC.png",
+"svg": "images/card_images/AC.svg"
 },
-"image": "../../client/public/images/card_images/AC.png"
+"image": "images/card_images/AC.png"
 },
 {
 "suit": "CLUBS",
 "code": "2C",
 "value": 2,
 "images": {
-"png": "../../client/public/images/card_images/2C.png",
-"svg": "../../client/public/images/card_images/2C.svg"
+"png": "images/card_images/2C.png",
+"svg": "images/card_images/2C.svg"
 },
-"image": "../../client/public/images/card_images/2C.png"
+"image": "images/card_images/2C.png"
 },
 {
 "suit": "CLUBS",
 "code": "3C",
 "value": 3,
 "images": {
-"png": "../../client/public/images/card_images/3C.png",
-"svg": "../../client/public/images/card_images/3C.svg"
+"png": "images/card_images/3C.png",
+"svg": "images/card_images/3C.svg"
 },
-"image": "../../client/public/images/card_images/3C.png"
+"image": "images/card_images/3C.png"
 },
 {
 "suit": "CLUBS",
 "code": "4C",
 "value": 4,
 "images": {
-"png": "../../client/public/images/card_images/4C.png",
-"svg": "../../client/public/images/card_images/4C.svg"
+"png": "images/card_images/4C.png",
+"svg": "images/card_images/4C.svg"
 },
-"image": "../../client/public/images/card_images/4C.png"
+"image": "images/card_images/4C.png"
 },
 {
 "suit": "CLUBS",
 "code": "5C",
 "value": 5,
 "images": {
-"png": "../../client/public/images/card_images/5C.png",
-"svg": "../../client/public/images/card_images/5C.svg"
+"png": "images/card_images/5C.png",
+"svg": "images/card_images/5C.svg"
 },
-"image": "../../client/public/images/card_images/5C.png"
+"image": "images/card_images/5C.png"
 },
 {
 "suit": "CLUBS",
 "code": "6C",
 "value": 6,
 "images": {
-"png": "../../client/public/images/card_images/6C.png",
-"svg": "../../client/public/images/card_images/6C.svg"
+"png": "images/card_images/6C.png",
+"svg": "images/card_images/6C.svg"
 },
-"image": "../../client/public/images/card_images/6C.png"
+"image": "images/card_images/6C.png"
 },
 {
 "suit": "CLUBS",
 "code": "7C",
 "value": 7,
 "images": {
-"png": "../../client/public/images/card_images/7C.png",
-"svg": "../../client/public/images/card_images/7C.svg"
+"png": "images/card_images/7C.png",
+"svg": "images/card_images/7C.svg"
 },
-"image": "../../client/public/images/card_images/7C.png"
+"image": "images/card_images/7C.png"
 },
 {
 "suit": "CLUBS",
 "code": "8C",
 "value": 8,
 "images": {
-"png": "../../client/public/images/card_images/8C.png",
-"svg": "../../client/public/images/card_images/8C.svg"
+"png": "images/card_images/8C.png",
+"svg": "images/card_images/8C.svg"
 },
-"image": "../../client/public/images/card_images/8C.png"
+"image": "images/card_images/8C.png"
 },
 {
 "suit": "CLUBS",
 "code": "9C",
 "value": 9,
 "images": {
-"png": "../../client/public/images/card_images/9C.png",
-"svg": "../../client/public/images/card_images/9C.svg"
+"png": "images/card_images/9C.png",
+"svg": "images/card_images/9C.svg"
 },
-"image": "../../client/public/images/card_images/9C.png"
+"image": "images/card_images/9C.png"
 },
 {
 "suit": "CLUBS",
 "code": "0C",
 "value": 10,
 "images": {
-"png": "../../client/public/images/card_images/0C.png",
-"svg": "../../client/public/images/card_images/0C.svg"
+"png": "images/card_images/0C.png",
+"svg": "images/card_images/0C.svg"
 },
-"image": "../../client/public/images/card_images/0C.png"
+"image": "images/card_images/0C.png"
 },
 {
 "suit": "CLUBS",
 "code": "JC",
 "value": 10,
 "images": {
-"png": "../../client/public/images/card_images/JC.png",
-"svg": "../../client/public/images/card_images/JC.svg"
+"png": "images/card_images/JC.png",
+"svg": "images/card_images/JC.svg"
 },
-"image": "../../client/public/images/card_images/JC.png"
+"image": "images/card_images/JC.png"
 },
 {
 "suit": "CLUBS",
 "code": "QC",
 "value": 10,
 "images": {
-"png": "../../client/public/images/card_images/QC.png",
-"svg": "../../client/public/images/card_images/QC.svg"
+"png": "images/card_images/QC.png",
+"svg": "images/card_images/QC.svg"
 },
-"image": "../../client/public/images/card_images/QC.png"
+"image": "images/card_images/QC.png"
 },
 {
 "suit": "CLUBS",
 "code": "KC",
 "value": 10,
 "images": {
-"png": "../../client/public/images/card_images/KC.png",
-"svg": "../../client/public/images/card_images/KC.svg"
+"png": "images/card_images/KC.png",
+"svg": "images/card_images/KC.svg"
 },
-"image": "../../client/public/images/card_images/KC.png"
+"image": "images/card_images/KC.png"
 },
 {
 "suit": "HEARTS",
 "code": "AH",
 "value": 11,
 "images": {
-"png": "../../client/public/images/card_images/AH.png",
-"svg": "../../client/public/images/card_images/AH.svg"
+"png": "images/card_images/AH.png",
+"svg": "images/card_images/AH.svg"
 },
-"image": "../../client/public/images/card_images/AH.png"
+"image": "images/card_images/AH.png"
 },
 {
 "suit": "HEARTS",
 "code": "2H",
 "value": 2,
 "images": {
-"png": "../../client/public/images/card_images/2H.png",
-"svg": "../../client/public/images/card_images/2H.svg"
+"png": "images/card_images/2H.png",
+"svg": "images/card_images/2H.svg"
 },
-"image": "../../client/public/images/card_images/2H.png"
+"image": "images/card_images/2H.png"
 },
 {
 "suit": "HEARTS",
 "code": "3H",
 "value": 3,
 "images": {
-"png": "../../client/public/images/card_images/3H.png",
-"svg": "../../client/public/images/card_images/3H.svg"
+"png": "images/card_images/3H.png",
+"svg": "images/card_images/3H.svg"
 },
-"image": "../../client/public/images/card_images/3H.png"
+"image": "images/card_images/3H.png"
 },
 {
 "suit": "HEARTS",
 "code": "4H",
 "value": 4,
 "images": {
-"png": "../../client/public/images/card_images/4H.png",
-"svg": "../../client/public/images/card_images/4H.svg"
+"png": "images/card_images/4H.png",
+"svg": "images/card_images/4H.svg"
 },
-"image": "../../client/public/images/card_images/4H.png"
+"image": "images/card_images/4H.png"
 },
 {
 "suit": "HEARTS",
 "code": "5H",
 "value": 5,
 "images": {
-"png": "../../client/public/images/card_images/5H.png",
-"svg": "../../client/public/images/card_images/5H.svg"
+"png": "images/card_images/5H.png",
+"svg": "images/card_images/5H.svg"
 },
-"image": "../../client/public/images/card_images/5H.png"
+"image": "images/card_images/5H.png"
 },
 {
 "suit": "HEARTS",
 "code": "6H",
 "value": 6,
 "images": {
-"png": "../../client/public/images/card_images/6H.png",
-"svg": "../../client/public/images/card_images/6H.svg"
+"png": "images/card_images/6H.png",
+"svg": "images/card_images/6H.svg"
 },
-"image": "../../client/public/images/card_images/6H.png"
+"image": "images/card_images/6H.png"
 },
 {
 "suit": "HEARTS",
 "code": "7H",
 "value": 7,
 "images": {
-"png": "../../client/public/images/card_images/7H.png",
-"svg": "../../client/public/images/card_images/7H.svg"
+"png": "images/card_images/7H.png",
+"svg": "images/card_images/7H.svg"
 },
-"image": "../../client/public/images/card_images/7H.png"
+"image": "images/card_images/7H.png"
 },
 {
 "suit": "HEARTS",
 "code": "8H",
 "value": 8,
 "images": {
-"png": "../../client/public/images/card_images/8H.png",
-"svg": "../../client/public/images/card_images/8H.svg"
+"png": "images/card_images/8H.png",
+"svg": "images/card_images/8H.svg"
 },
-"image": "../../client/public/images/card_images/8H.png"
+"image": "images/card_images/8H.png"
 },
 {
 "suit": "HEARTS",
 "code": "9H",
 "value": 9,
 "images": {
-"png": "../../client/public/images/card_images/9H.png",
-"svg": "../../client/public/images/card_images/9H.svg"
+"png": "images/card_images/9H.png",
+"svg": "images/card_images/9H.svg"
 },
-"image": "../../client/public/images/card_images/9H.png"
+"image": "images/card_images/9H.png"
 },
 {
 "suit": "HEARTS",
 "code": "0H",
 "value": 10,
 "images": {
-"png": "../../client/public/images/card_images/0H.png",
-"svg": "../../client/public/images/card_images/0H.svg"
+"png": "images/card_images/0H.png",
+"svg": "images/card_images/0H.svg"
 },
-"image": "../../client/public/images/card_images/0H.png"
+"image": "images/card_images/0H.png"
 },
 {
 "suit": "HEARTS",
 "code": "JH",
 "value": 10,
 "images": {
-"png": "../../client/public/images/card_images/JH.png",
-"svg": "../../client/public/images/card_images/JH.svg"
+"png": "images/card_images/JH.png",
+"svg": "images/card_images/JH.svg"
 },
-"image": "../../client/public/images/card_images/JH.png"
+"image": "images/card_images/JH.png"
 },
 {
 "suit": "HEARTS",
 "code": "QH",
 "value": 10,
 "images": {
-"png": "../../client/public/images/card_images/QH.png",
-"svg": "../../client/public/images/card_images/QH.svg"
+"png": "images/card_images/QH.png",
+"svg": "images/card_images/QH.svg"
 },
-"image": "../../client/public/images/card_images/QH.png"
+"image": "images/card_images/QH.png"
 },
 {
 "suit": "HEARTS",
 "code": "KH",
 "value": 10,
 "images": {
-"png": "../../client/public/images/card_images/KH.png",
-"svg": "../../client/public/images/card_images/KH.svg"
+"png": "images/card_images/KH.png",
+"svg": "images/card_images/KH.svg"
 },
-"image": "../../client/public/images/card_images/KH.png"
+"image": "images/card_images/KH.png"
 }
 ]);
