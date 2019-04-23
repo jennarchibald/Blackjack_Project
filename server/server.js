@@ -15,6 +15,8 @@ MongoClient.connect('mongodb://localhost:27017')
     const db = client.db('blackjack');
     const deck = db.collection('deck');
     app.use('/api/deck', createRouter(deck));
+    const players = db.collection('players');
+    app.use('/api/players', createRouter(players));
   })
   .catch((err) => {
     console.error('Failed to connect to DB');
