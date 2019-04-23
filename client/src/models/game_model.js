@@ -33,7 +33,7 @@ Game.prototype.bindEvents = function(){
 
 Game.prototype.getPlayer = function() {
   this.player = new Player();
-  
+
 }
 
 Game.prototype.getDeck = function () {
@@ -51,10 +51,10 @@ Game.prototype.openingDeal = function(){
   this.deck.shuffle();
   this.player.hand = new Hand();
   this.dealer.hand = new Hand();
-  this.dealCard('player.hand');
-  this.dealCard('dealer.hand');
-  this.dealCard('player.hand');
-  this.dealCard('dealer.hand');
+  this.dealCard('player');
+  this.dealCard('dealer');
+  this.dealCard('player');
+  this.dealCard('dealer');
 }
 
 // plays the dealers turn
@@ -79,8 +79,8 @@ Game.prototype.publishDealerCard = function (){
 // deals a card to a specified hand
 Game.prototype.dealCard = function(handOwner){
   const card = this.deck.getCard();
-  this[handOwner].cards.push(card);
-  this[handOwner].checkForBust();
+  this[handOwner].hand.cards.push(card);
+  this[handOwner].hand.checkForBust();
   return card;
 };
 
@@ -106,7 +106,7 @@ Game.prototype.determineWinner = function(){
 //When a bet is made
 Game.prototype.handleBet = function () {
   PubSub.subscribe("BetView:place_bet", (evt, value) => {
-    
+
   })
 }
 
