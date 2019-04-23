@@ -9,6 +9,7 @@ const Player = function(){
 Player.prototype.placeBet = function(amount) {
   this.wallet -= amount;
   this.updateWallet();
+  console.log(this.wallet);
 };
 
 Player.prototype.winMoney = function(amount){

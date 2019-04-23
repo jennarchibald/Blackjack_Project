@@ -27,15 +27,16 @@ Game.prototype.bindEvents = function(){
     this.dealersTurn();
   });
   PubSub.subscribe("BetView:bet-increased", (evt) => {
-    this.intendedBet = evt.detail;
-    this.checkMoneyForBet();
+    this.checkMoneyForBet(evt.detail);
   });
+
   PubSub.subscribe("BetView:reset-bet", (evt) => {
     this.resetBet();
   });
   PubSub.subscribe("BetView:bet-placed", (evt) => {
     this.actualBet = evt.detail;
     this.player.placeBet(this.actualBet);
+    // this.resetBet()
     PubSub.publish('Game:wallet-updated', this.player.wallet);
   })
 };
@@ -114,8 +115,10 @@ Game.prototype.determineWinner = function(){
   }
 };
 
-Game.prototype.checkMoneyForBet = function (){
-    if (this.player.wallet > this.intendedBet) {
+Game.prototype.checkMoneyForBet = function (amount){
+  const bet = this.intendedBet + parseInt(amount, 10);
+    if (this.player.wallet >= bet) {
+      this.intendedBet = bet;
       PubSub.publish('Game:bet-changed', this.intendedBet)
     } else {
       PubSub.publish('Game:not-enough-money', "You don't have enough money in your wallet");
