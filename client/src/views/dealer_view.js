@@ -38,16 +38,17 @@ DealerView.prototype.render = function (firstCardDown) {
   let total = this.hand.totalValue();
   if (firstCardDown) { total = '???'  }
   const totalView = new TotalView(totalContainer, 'Dealer', total);
-  totalView.render();
   totalView.bindEvents();
   const handContainer = this.makeContainer('dealer-hand');
   const handView = new HandView(handContainer, this.hand, firstCardDown);
   if (this.revealCards){
+    totalView.render(true);
     handView.render();
+  } else {
+    totalView.render()
   }
   const rulesView = this.makeContainer('rules-view');
   const rulesList = this.makeRulesList();
-  console.log(rulesList);
   rulesView.appendChild(rulesList);
 };
 

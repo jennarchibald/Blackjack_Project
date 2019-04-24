@@ -64,17 +64,13 @@ Game.prototype.getDeck = function () {
 Game.prototype.openingDeal = function(){
   this.intendedBet = null;
   this.actualBet = null;
-  if (!this.gameIsLost()){
-    this.deck.shuffle();
-    this.player.hand = new Hand();
-    this.dealer.hand = new Hand();
-    this.dealCard('player');
-    this.dealCard('dealer');
-    this.dealCard('player');
-    this.dealCard('dealer');
-  } else {
-    PubSub.publish('Game:game-is-lost')
-  }
+  this.deck.shuffle();
+  this.player.hand = new Hand();
+  this.dealer.hand = new Hand();
+  this.dealCard('player');
+  this.dealCard('dealer');
+  this.dealCard('player');
+  this.dealCard('dealer');
 };
 
 // plays the dealers turn
@@ -118,34 +114,38 @@ Game.prototype.dealCard = function(handOwner){
 Game.prototype.determineWinner = function(){
   const playerHand = this.player.hand.totalValue();
   const dealerHand = this.dealer.hand.totalValue();
+  const result = {}
   if (this.player.hand.checkForBust()){
-    return "House wins"
+    result.result = "House wins"
   } else if (this.dealer.hand.checkForBust()){
     this.winCondition();
-    return "You win";
+    result.result = "You win";
   } else {
     if (playerHand > dealerHand) {
       this.winCondition();
-      return "You win";
+      result.result = "You win";
     } else if (dealerHand > playerHand){
-      return "House wins"
+      result.result = "House wins"
     } else {
-      return "Push";
+      result.result = "Push";
     }
   }
+  result.gameOver = this.gameIsLost()
+  return result;
 };
 
 //checks if the players wallet has enough in it for the player to post the bet
 Game.prototype.checkMoneyForBet = function (amount){
   const bet = this.intendedBet + parseInt(amount, 10);
-    if (this.player.wallet >= bet) {
-      this.intendedBet = bet;
-      PubSub.publish('Game:bet-changed', this.intendedBet)
-    } else {
-      PubSub.publish('Game:not-enough-money', "You don't have enough money in your wallet");
-    };
+  if (this.player.wallet >= bet) {
+    this.intendedBet = bet;
+    PubSub.publish('Game:bet-changed', this.intendedBet)
+  } else {
+    PubSub.publish('Game:not-enough-money', "You don't have enough money in your wallet");
   };
+};
 
+<<<<<<< HEAD
 //resets the intended bet to zero after placing the bet.
   Game.prototype.resetBet = function (){
     this.intendedBet = 0;
@@ -163,6 +163,22 @@ Game.prototype.checkMoneyForBet = function (amount){
   Game.prototype.gameIsLost = function () {
     return (this.player.wallet < 1);
   };
+=======
+Game.prototype.resetBet = function (){
+  this.intendedBet = 0;
+  PubSub.publish('Game:bet-changed', this.intendedBet);
+};
+
+Game.prototype.winCondition = function (){
+  const winnings = (this.actualBet * 2);
+  this.player.wallet += winnings;
+  PubSub.publish('Game:wallet-updated', this.player.wallet);
+};
+
+Game.prototype.gameIsLost = function () {
+  return (this.player.wallet < 1);
+};
+>>>>>>> develop
 
 
 module.exports = Game;

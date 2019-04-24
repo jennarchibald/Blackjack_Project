@@ -24,17 +24,28 @@ BetView.prototype.bindEvents = function () {
 
 BetView.prototype.render = function () {
   this.container.innerHTML = '';
-  this.renderBetButton(1);
-  this.renderBetButton(5);
-  this.renderBetButton(10);
-  this.renderPlaceBet('Place Bet');
   this.renderCurrentBet(this.betValue);
   this.renderWallet(this.wallet);
+  this.renderButtons();
+  this.renderPlaceBet('Place Bet');
   this.renderReset();
 };
 
+<<<<<<< HEAD
 //creates each of the poker-chip style buttons
 BetView.prototype.renderBetButton = function (value) {
+=======
+BetView.prototype.renderButtons = function () {
+  const div = document.createElement('div');
+  div.classList.add('bet-buttons-container');
+  this.container.appendChild(div);
+  this.renderBetButton(1, div);
+  this.renderBetButton(5, div);
+  this.renderBetButton(10, div);
+};
+
+BetView.prototype.renderBetButton = function (value, container) {
+>>>>>>> develop
   const betButton = document.createElement("button");
   betButton.textContent = value;
   betButton.id = value;
@@ -43,7 +54,7 @@ BetView.prototype.renderBetButton = function (value) {
   betButton.addEventListener('click', (evt) => {
     PubSub.publish("BetView:bet-increased", betButton.id);
   });
-  this.container.appendChild(betButton)
+  container.appendChild(betButton)
 }
 
 //renders the place bet button. disabled unless bet is greater than 0
