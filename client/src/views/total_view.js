@@ -13,7 +13,6 @@ TotalView.prototype.bindEvents = function() {
     const bustStatus = document.createElement('h2');
     bustStatus.textContent = "BUST"
     this.bustStatus = bustStatus;
-        console.log('player working');
     this.render();
 
   });
@@ -21,7 +20,6 @@ TotalView.prototype.bindEvents = function() {
     const bustStatusDealer = document.createElement('h2');
     bustStatusDealer.textContent = "BUST"
     this.bustStatusDealer = bustStatusDealer;
-    console.log('dealer working');
     this.render();
 
   });

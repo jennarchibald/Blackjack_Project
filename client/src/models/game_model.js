@@ -39,6 +39,11 @@ Game.prototype.bindEvents = function(){
     // this.resetBet()
     PubSub.publish('Game:wallet-updated', this.player.wallet);
   })
+
+  PubSub.subscribe('Result:deal-next-hand', (evt) => {
+    this.openingDeal()
+    PubSub.publish('Game:hands-ready', { dealerHand: this.dealer.hand, player: this.player});
+  })
 };
 
 Game.prototype.newPlayer = function() {
@@ -73,7 +78,6 @@ Game.prototype.openingDeal = function(){
 
 // plays the dealers turn
 Game.prototype.dealersTurn = function () {
-  // console.log(this.dealer.hand);
   if (this.dealer.hand.totalValue() < 17){
 
     this.dealCard('dealer');

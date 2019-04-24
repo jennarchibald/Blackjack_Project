@@ -9,7 +9,6 @@ const Player = function(){
 Player.prototype.placeBet = function(amount) {
   this.wallet -= amount;
   this.updateWallet();
-  console.log(this.wallet);
 };
 
 Player.prototype.winMoney = function(amount){
@@ -20,7 +19,10 @@ Player.prototype.winMoney = function(amount){
 Player.prototype.updateWallet = function(){
   const request = new RequestHelper(`http://localhost:3000/api/players/${this.id}`)
   request.put({"wallet": this.wallet})
-  .then((player) => {
+  .then((allPlayers) => {
+    const player = allPlayers.find((player) => {
+      return player._id == this.id;
+    })
     this.wallet = player.wallet;
   })
   .catch(console.error);

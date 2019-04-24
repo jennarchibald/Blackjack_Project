@@ -29,10 +29,12 @@ ResultView.prototype.render = function (result) {
   const thisResult = this.buildElement('h2', result);
   resultContainer.appendChild(thisResult);
 
-  const reloadButton = document.createElement('button');
-  reloadButton.textContent = "Play again?"
-  reloadButton.addEventListener('click', function(){location.reload()});
-  resultContainer.appendChild(reloadButton);
+  const nextHandButton = document.createElement('button');
+  nextHandButton.textContent = "Deal Next Hand"
+  nextHandButton.addEventListener('click', function(){
+    PubSub.publish('Result:deal-next-hand')
+  });
+  resultContainer.appendChild(nextHandButton);
 }
 
 ResultView.prototype.renderGameOver = function () {
