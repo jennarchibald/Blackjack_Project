@@ -10,6 +10,7 @@ const PlayerView = function(container, player, hand){
   this.hand = hand;
   this.betDisabled = false;
   this.buttonsDisabled = true;
+  this.revealCards = false
 };
 
 PlayerView.prototype.bindEvents = function(){
@@ -20,6 +21,10 @@ PlayerView.prototype.bindEvents = function(){
   PubSub.subscribe("BetView:bet-placed", (evt) => {
     this.betDisabled = true;
     this.buttonsDisabled = false;
+  })
+  PubSub.subscribe('BetView:bet-placed', (evt) => {
+    this.revealCards = true;
+    this.render();
   })
 };
 
@@ -33,7 +38,10 @@ PlayerView.prototype.render = function () {
 
   const handContainer = this.makeContainer('player-hand');
   const handView = new HandView(handContainer, this.hand);
-  handView.render();
+
+  if (this.revealCards){
+    handView.render();
+  }
 
   const buttonsContainer = this.makeContainer('buttons');
   const buttonsView = new ButtonsView(buttonsContainer);
