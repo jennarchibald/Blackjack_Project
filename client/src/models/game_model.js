@@ -171,7 +171,7 @@ Game.prototype.checkMoneyForBet = function (amount){
 
   Game.prototype.gameIsDraw = function (){
     const bet = this.actualBet;
-    this.player.wallet += bet;
+    this.player.winMoney(bet);
     PubSub.publish('Game:wallet-updated', this.player.wallet);
   }
 
