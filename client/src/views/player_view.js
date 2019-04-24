@@ -32,21 +32,22 @@ PlayerView.prototype.render = function () {
   this.container.innerHTML = '';
   const totalContainer = this.makeContainer('player-total')
   const totalView = new TotalView(totalContainer, 'Player', this.hand.totalValue());
-  totalView.render();
   totalView.bindEvents();
+  totalView.render();
 
 
   const handContainer = this.makeContainer('player-hand');
   const handView = new HandView(handContainer, this.hand);
 
-  if (this.revealCards){
-    handView.render();
-  }
-
   const buttonsContainer = this.makeContainer('buttons');
   const buttonsView = new ButtonsView(buttonsContainer);
-  buttonsView.render();
-  buttonsView.bindEvents();
+
+  if (this.revealCards){
+    handView.render();
+    buttonsView.render();
+
+    buttonsView.bindEvents();
+  }
 
   const betContainer = this.makeContainer('bets');
   const betView = new BetView(betContainer, this.player, this.betDisabled);
