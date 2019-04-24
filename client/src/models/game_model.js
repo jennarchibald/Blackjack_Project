@@ -131,6 +131,7 @@ Game.prototype.determineWinner = function(){
     } else if (dealerHand > playerHand){
       result.result = "House wins"
     } else {
+      this.gameIsDraw()
       result.result = "Push";
     }
   }
@@ -167,6 +168,12 @@ Game.prototype.checkMoneyForBet = function (amount){
   Game.prototype.gameIsLost = function () {
     return (this.player.wallet < 1);
   };
+
+  Game.prototype.gameIsDraw = function (){
+    const bet = this.actualBet;
+    this.player.wallet += bet;
+    PubSub.publish('Game:wallet-updated', this.player.wallet);
+  }
 
 
 
