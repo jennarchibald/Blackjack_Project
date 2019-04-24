@@ -56,15 +56,19 @@ Game.prototype.getDeck = function () {
   }).catch((err) => console.error(err));
 };
 
-// creates a new deck and deals two cards to each player
+// shuffles the deck and deals two cards to each player
 Game.prototype.openingDeal = function(){
-  this.deck.shuffle();
-  this.player.hand = new Hand();
-  this.dealer.hand = new Hand();
-  this.dealCard('player');
-  this.dealCard('dealer');
-  this.dealCard('player');
-  this.dealCard('dealer');
+  if (!this.gameIsLost()){
+    this.deck.shuffle();
+    this.player.hand = new Hand();
+    this.dealer.hand = new Hand();
+    this.dealCard('player');
+    this.dealCard('dealer');
+    this.dealCard('player');
+    this.dealCard('dealer');
+  } else {
+    PubSub.publish('Game:game-is-lost')
+  }
 };
 
 // plays the dealers turn
@@ -148,6 +152,9 @@ Game.prototype.checkMoneyForBet = function (amount){
     PubSub.publish('Game:wallet-updated', this.player.wallet);
   };
 
+  Game.prototype.gameIsLost = function () {
+    return (this.player.wallet < 1);
+  };
 
 
 module.exports = Game;
