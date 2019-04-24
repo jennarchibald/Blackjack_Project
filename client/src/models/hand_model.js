@@ -38,6 +38,8 @@ Hand.prototype.acesLow = function () {
 Hand.prototype.checkForBlackjack = function() {
   if (this.totalValue() == 21 && this.cards.length == 2){
     this.isBlackjack = true;
+  } else {
+    this.isBlackjack = false;
   }
 }
 
