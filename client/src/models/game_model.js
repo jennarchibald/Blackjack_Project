@@ -128,16 +128,18 @@ Game.prototype.determineWinner = function(){
     this.winBlackjack();
     result.result = "BLACKJACK!"
   } else if (this.player.hand.checkForBust()){
-    result.result = "House wins"
+    result.result = "House Wins"
   } else if (this.dealer.hand.checkForBust()){
     this.winCondition();
-    result.result = "You win";
+    result.result = "You Win";
   } else {
       if (playerHand > dealerHand) {
       this.winCondition();
-      result.result = "You win";
+      result.result = "You Win";
     } else if (dealerHand > playerHand){
-      result.result = "House wins"
+      result.result = "House Wins"
+    } else if (dealerHand == playerHand && this.dealer.hand.isBlackjack){
+      result.result = "Dealer BLACKJACK, House Wins"
     } else {
       this.gameIsDraw()
       result.result = "Push";
