@@ -63,6 +63,8 @@ Game.prototype.getDeck = function () {
 
 // shuffles the deck and deals two cards to each player
 Game.prototype.openingDeal = function(){
+  this.intendedBet = null;
+  this.actualBet = null;
   if (!this.gameIsLost()){
     this.deck.shuffle();
     this.player.hand = new Hand();
