@@ -9,6 +9,11 @@ ResultView.prototype.bindEvents = function () {
     const result = evt.detail;
     this.render(result);
   });
+
+  PubSub.subscribe('BetView:bet-placed', (evt) => {
+    const bet = evt.detail;
+    this.renderBet(bet);
+  });
 };
 
 ResultView.prototype.buildElement = function (type, text) {
@@ -31,6 +36,14 @@ ResultView.prototype.render = function (result) {
   resultContainer.appendChild(reloadButton);
 }
 
+ResultView.prototype.renderBet = function (bet) {
+  const resultContainer = this.container;
+
+  this.container.innerHTML = "";
+
+  const thisResult = this.buildElement('h2', `Player bet: ${bet}`);
+  resultContainer.appendChild(thisResult);
+}
 
 
 
