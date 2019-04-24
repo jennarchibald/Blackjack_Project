@@ -132,18 +132,18 @@ Game.prototype.determineWinner = function(){
 
   if (this.player.hand.isBlackjack && !this.dealer.hand.isBlackjack){
     this.winBlackjack();
-    result.result = "BLACKJACK!"
+    result.result = `BLACKJACK! You Win: ${this.actualBet*3}`
     this.winSound.play()
   } else if (this.player.hand.checkForBust()){
     result.result = "House Wins"
   } else if (this.dealer.hand.checkForBust()){
     this.winCondition();
-    result.result = "You Win";
+    result.result = `You Win: ${this.actualBet*2}`;
     this.winSound.play()
   } else {
       if (playerHand > dealerHand) {
       this.winCondition();
-      result.result = "You Win";
+      result.result = `You Win: ${this.actualBet*2}`;
       this.winSound.play()
     } else if (dealerHand > playerHand){
       result.result = "House Wins"

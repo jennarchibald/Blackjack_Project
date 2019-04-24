@@ -59,7 +59,7 @@ ResultView.prototype.renderGameOver = function (result) {
   resultContainer.appendChild(gameOver);
 
   const reloadButton = document.createElement('button');
-  reloadButton.textContent = "Play again?"
+  reloadButton.textContent = "Play Again?"
   reloadButton.addEventListener('click', function(){location.reload()});
   resultContainer.appendChild(reloadButton);
 };
@@ -70,7 +70,7 @@ ResultView.prototype.renderBet = function (bet) {
 
   this.container.innerHTML = "";
 
-  const thisResult = this.buildElement('h2', `Player bet: ${bet}`);
+  const thisResult = this.buildElement('h2', `Player Bet: ${bet}`);
   resultContainer.appendChild(thisResult);
 }
 
