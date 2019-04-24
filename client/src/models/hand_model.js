@@ -1,5 +1,6 @@
 const Hand = function (){
   this.cards = [];
+  this.isBlackjack = false;
 };
 
 //gives the running sum total of the hand
@@ -33,5 +34,11 @@ Hand.prototype.acesLow = function () {
     ace.value = 1;
   };
 };
+
+Hand.prototype.checkForBlackjack = function() {
+  if (this.totalValue() == 21 && this.cards.length == 2){
+    this.isBlackjack = true;
+  }
+}
 
 module.exports = Hand;

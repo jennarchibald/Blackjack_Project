@@ -11,6 +11,7 @@ const Game = function(){
   this.intendedBet = null
   this.actualBet = null
   this.over = false;
+
 };
 
 Game.prototype.bindEvents = function(){
@@ -74,6 +75,7 @@ Game.prototype.openingDeal = function(){
   this.dealCard('dealer');
   this.dealCard('player');
   this.dealCard('dealer');
+  this.checkHandsForBlackjack();
 };
 
 // plays the dealers turn
@@ -119,13 +121,17 @@ Game.prototype.determineWinner = function(){
   const playerHand = this.player.hand.totalValue();
   const dealerHand = this.dealer.hand.totalValue();
   const result = {}
-  if (this.player.hand.checkForBust()){
+
+  if (this.player.hand.isBlackjack && !this.dealer.hand.isBlackjack){
+    this.winBlackjack();
+    result.result = "BLACKJACK!"
+  } else if (this.player.hand.checkForBust()){
     result.result = "House wins"
   } else if (this.dealer.hand.checkForBust()){
     this.winCondition();
     result.result = "You win";
   } else {
-    if (playerHand > dealerHand) {
+      if (playerHand > dealerHand) {
       this.winCondition();
       result.result = "You win";
     } else if (dealerHand > playerHand){
@@ -134,6 +140,8 @@ Game.prototype.determineWinner = function(){
       this.gameIsDraw()
       result.result = "Push";
     }
+
+
   }
   result.gameOver = this.gameIsLost()
   return result;
@@ -164,6 +172,13 @@ Game.prototype.checkMoneyForBet = function (amount){
     PubSub.publish('Game:wallet-updated', this.player.wallet);
   };
 
+//returns 2:1 winnings on a win for Blackjack
+  Game.prototype.winBlackjack = function (){
+    const winningsBlackjack = (this.actualBet * 3);
+    this.player.winMoney(winningsBlackjack);
+    PubSub.publish('Game:wallet-updated', this.player.wallet);
+  };
+
 //affects the players wallet on a lose condition
   Game.prototype.gameIsLost = function () {
     return (this.player.wallet < 1);
@@ -175,6 +190,11 @@ Game.prototype.checkMoneyForBet = function (amount){
     PubSub.publish('Game:wallet-updated', this.player.wallet);
   }
 
+  //check if the hand is BLACKJACK
+  Game.prototype.checkHandsForBlackjack = function (){
+    this.player.hand.checkForBlackjack();
+    this.dealer.hand.checkForBlackjack();
+  }
 
 
 module.exports = Game;
