@@ -70,7 +70,7 @@ ResultView.prototype.renderBet = function (bet) {
 
   this.container.innerHTML = "";
 
-  const thisResult = this.buildElement('h2', `Player bet: ${bet}`);
+  const thisResult = this.buildElement('h2', `Player Bet: ${bet}`);
   resultContainer.appendChild(thisResult);
 }
 
