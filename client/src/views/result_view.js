@@ -9,6 +9,10 @@ ResultView.prototype.bindEvents = function () {
     const result = evt.detail;
     this.render(result);
   });
+
+  PubSub.subscribe('Game:game-is-lost', (evt) => {
+    this.renderGameOver()
+  });
 };
 
 ResultView.prototype.buildElement = function (type, text) {
@@ -31,7 +35,15 @@ ResultView.prototype.render = function (result) {
   resultContainer.appendChild(reloadButton);
 }
 
+ResultView.prototype.renderGameOver = function () {
+  const gameOver = this.buildElement('h2', "Game Over");
+  resultContainer.appendChild(gameOver);
 
+  const reloadButton = document.createElement('button');
+  reloadButton.textContent = "Play again?"
+  reloadButton.addEventListener('click', function(){location.reload()});
+  resultContainer.appendChild(reloadButton);
+};
 
 
 module.exports = ResultView;

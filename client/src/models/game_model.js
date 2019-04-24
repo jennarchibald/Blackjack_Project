@@ -56,15 +56,19 @@ Game.prototype.getDeck = function () {
   }).catch((err) => console.error(err));
 };
 
-// creates a new deck and deals two cards to each player
+// shuffles the deck and deals two cards to each player
 Game.prototype.openingDeal = function(){
-  this.deck.shuffle();
-  this.player.hand = new Hand();
-  this.dealer.hand = new Hand();
-  this.dealCard('player');
-  this.dealCard('dealer');
-  this.dealCard('player');
-  this.dealCard('dealer');
+  if (!this.gameIsLost()){
+    this.deck.shuffle();
+    this.player.hand = new Hand();
+    this.dealer.hand = new Hand();
+    this.dealCard('player');
+    this.dealCard('dealer');
+    this.dealCard('player');
+    this.dealCard('dealer');
+  } else {
+    PubSub.publish('Game:game-is-lost')
+  }
 };
 
 // plays the dealers turn
@@ -112,9 +116,11 @@ Game.prototype.determineWinner = function(){
   if (this.player.hand.checkForBust()){
     return "House wins"
   } else if (this.dealer.hand.checkForBust()){
+    this.winCondition();
     return "You win";
   } else {
     if (playerHand > dealerHand) {
+      this.winCondition();
       return "You win";
     } else if (dealerHand > playerHand){
       return "House wins"
@@ -137,8 +143,17 @@ Game.prototype.checkMoneyForBet = function (amount){
   Game.prototype.resetBet = function (){
     this.intendedBet = 0;
     PubSub.publish('Game:bet-changed', this.intendedBet);
-  }
+  };
 
+  Game.prototype.winCondition = function (){
+    const winnings = (this.actualBet * 2);
+    this.player.wallet += winnings;
+    PubSub.publish('Game:wallet-updated', this.player.wallet);
+  };
+
+  Game.prototype.gameIsLost = function () {
+    return (this.player.wallet < 1);
+  };
 
 
 module.exports = Game;
