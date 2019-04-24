@@ -59,7 +59,7 @@ ResultView.prototype.renderGameOver = function (result) {
   resultContainer.appendChild(gameOver);
 
   const reloadButton = document.createElement('button');
-  reloadButton.textContent = "Play again?"
+  reloadButton.textContent = "Play Again?"
   reloadButton.addEventListener('click', function(){location.reload()});
   resultContainer.appendChild(reloadButton);
 };

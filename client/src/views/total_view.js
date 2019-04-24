@@ -12,6 +12,7 @@ TotalView.prototype.bindEvents = function() {
   PubSub.subscribe('Game:player-bust', (evt) => {
     const bustStatus = document.createElement('h2');
     bustStatus.textContent = "BUST"
+    bustStatus.classList.add('bust')
     this.bustStatus = bustStatus;
     this.render();
 
@@ -19,6 +20,7 @@ TotalView.prototype.bindEvents = function() {
   PubSub.subscribe('Game:dealer-bust', (evt) => {
     const bustStatusDealer = document.createElement('h2');
     bustStatusDealer.textContent = "BUST"
+    bustStatusDealer.classList.add('bust')
     this.bustStatusDealer = bustStatusDealer;
     this.render();
 

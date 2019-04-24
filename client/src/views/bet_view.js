@@ -5,6 +5,8 @@ const BetView = function (container, player, disabled) {
   this.betValue = 0;
   this.wallet = player.wallet
   this.disabled = disabled;
+  this.betSound = new Audio('sounds/poker-chips.mp3');
+  this.openingDealSound = new Audio('sounds/cardFan1.wav');
 };
 
 BetView.prototype.bindEvents = function () {
@@ -50,6 +52,7 @@ BetView.prototype.renderBetButton = function (value, container) {
   betButton.disabled = this.disabled;
   betButton.addEventListener('click', (evt) => {
     PubSub.publish("BetView:bet-increased", betButton.id);
+    this.betSound.play()
   });
   container.appendChild(betButton)
 }
@@ -63,6 +66,7 @@ BetView.prototype.renderPlaceBet = function (value) {
   placeBet.addEventListener('click', () => {
     if (this.betValue > 0){
       PubSub.publish("BetView:bet-placed", this.betValue);
+      this.openingDealSound.play();
       this.disabled = true;
       this.betValue = 0;
       this.render()
@@ -74,7 +78,7 @@ BetView.prototype.renderPlaceBet = function (value) {
 //shows the value of the current bet
 BetView.prototype.renderCurrentBet = function (value) {
   const currentBet = document.createElement("h4");
-  currentBet.textContent = `Current Bet: ${value}`;
+  currentBet.textContent = `Amount to Bet: ${value}`;
   currentBet.classList.add('current-bet');
   this.container.appendChild(currentBet);
 };
@@ -94,7 +98,7 @@ BetView.prototype.renderReset = function () {
 //renders the current value of the wallet
 BetView.prototype.renderWallet = function (value) {
   const currentWallet = document.createElement("h4");
-  currentWallet.textContent = `Current Wallet: ${value}`;
+  currentWallet.textContent = `Wallet: ${value}`;
   currentWallet.classList.add('current-wallet');
   this.container.appendChild(currentWallet);
 };
