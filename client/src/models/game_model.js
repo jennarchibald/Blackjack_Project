@@ -79,7 +79,6 @@ Game.prototype.openingDeal = function(){
 // plays the dealers turn
 Game.prototype.dealersTurn = function () {
   if (this.dealer.hand.totalValue() < 17){
-
     this.dealCard('dealer');
     window.setTimeout(this.publishDealerCard, 1000)
     this.publishDealerBust()
@@ -121,9 +120,11 @@ Game.prototype.determineWinner = function(){
   if (this.player.hand.checkForBust()){
     return "House wins"
   } else if (this.dealer.hand.checkForBust()){
+    this.winCondition();
     return "You win";
   } else {
     if (playerHand > dealerHand) {
+      this.winCondition();
       return "You win";
     } else if (dealerHand > playerHand){
       return "House wins"
@@ -146,7 +147,13 @@ Game.prototype.checkMoneyForBet = function (amount){
   Game.prototype.resetBet = function (){
     this.intendedBet = 0;
     PubSub.publish('Game:bet-changed', this.intendedBet);
-  }
+  };
+
+  Game.prototype.winCondition = function (){
+    const winnings = (this.actualBet * 2);
+    this.player.wallet += winnings;
+    PubSub.publish('Game:wallet-updated', this.player.wallet);
+  };
 
   Game.prototype.gameIsLost = function () {
     return (this.player.wallet < 1);

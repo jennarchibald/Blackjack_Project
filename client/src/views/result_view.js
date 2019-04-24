@@ -13,6 +13,11 @@ ResultView.prototype.bindEvents = function () {
   PubSub.subscribe('Game:game-is-lost', (evt) => {
     this.renderGameOver()
   });
+
+  PubSub.subscribe('BetView:bet-placed', (evt) => {
+    const bet = evt.detail;
+    this.renderBet(bet);
+    });
 };
 
 ResultView.prototype.buildElement = function (type, text) {
@@ -41,11 +46,20 @@ ResultView.prototype.renderGameOver = function () {
   const gameOver = this.buildElement('h2', "Game Over");
   resultContainer.appendChild(gameOver);
 
+
   const reloadButton = document.createElement('button');
   reloadButton.textContent = "Play again?"
   reloadButton.addEventListener('click', function(){location.reload()});
   resultContainer.appendChild(reloadButton);
 };
 
+ResultView.prototype.renderBet = function (bet) {
+  const resultContainer = this.container;
+
+  this.container.innerHTML = "";
+
+  const thisResult = this.buildElement('h2', `Player bet: ${bet}`);
+  resultContainer.appendChild(thisResult);
+}
 
 module.exports = ResultView;
