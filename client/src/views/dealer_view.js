@@ -65,6 +65,7 @@ DealerView.prototype.makeContainer = function (containerClass) {
 
 DealerView.prototype.makeRulesList = function () {
   const list = document.createElement('ul');
+  const heading = document.createElement('h2')
   const rule1 = document.createElement('li');
   const rule2 = document.createElement('li');
   const rule3 = document.createElement('li');
@@ -74,6 +75,7 @@ DealerView.prototype.makeRulesList = function () {
   const rule7 = document.createElement('li');
   const rule8 = document.createElement('li');
   const link = document.createElement('a');
+  heading.textContent = 'The rules:';
   rule1.textContent = 'Hit for a new card';
   rule2.textContent = 'Stick to end your turn';
   rule3.textContent = 'If your score goes above 21, you lose';
@@ -84,6 +86,7 @@ DealerView.prototype.makeRulesList = function () {
   link.textContent = 'When the fun stops, Stop';
   link.href = 'http://www.whenthefunstops.co.uk/';
   rule8.appendChild(link);
+  list.appendChild(heading)
   list.appendChild(rule1);
   list.appendChild(rule2);
   list.appendChild(rule3);
