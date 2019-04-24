@@ -26,7 +26,7 @@ DealerView.prototype.bindEvents = function() {
         PubSub.publish('DealerView:dealers-cards-revealed')
       }, 1000)
     });
-    PubSub.subscribe(‘BetView:bet-placed’, (evt) => {
+    PubSub.subscribe('BetView:bet-placed', (evt) => {
      this.revealCards = true;
      this.render(true);
    })
