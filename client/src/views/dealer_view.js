@@ -71,7 +71,8 @@ DealerView.prototype.makeRulesList = function () {
   const rule7 = document.createElement('li');
   const rule8 = document.createElement('li');
   const link = document.createElement('a');
-  heading.textContent = 'The rules:';
+  heading.textContent = 'The Rules';
+  heading.classList.add('rules-heading');
   rule1.textContent = 'Hit for a new card';
   rule2.textContent = 'Stick to end your turn';
   rule3.textContent = 'If your score goes above 21, you lose';
@@ -79,7 +80,7 @@ DealerView.prototype.makeRulesList = function () {
   rule5.textContent = 'A push is a draw';
   rule6.textContent = 'The dealer must draw to a minimum score of 17';
   rule7.textContent = 'Wins are paid at 2:1';
-  link.textContent = 'When the fun stops, Stop';
+  link.textContent = 'When the fun stops, Stop!';
   link.href = 'http://www.whenthefunstops.co.uk/';
   rule8.appendChild(link);
   list.appendChild(heading)

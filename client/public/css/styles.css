@@ -280,10 +280,15 @@ ul {
 
 li > a {
   margin-left: 0;
+  text-decoration: none;
+  font-weight: bold;
+  opacity: 1;
+  color: yellow;
 }
 li >a:hover {
   margin-left: 0;
   color: black;
+  text-decoration: none;
 }
 
 .result-view {
