@@ -5,6 +5,7 @@ const PubSub = require('../helpers/pub_sub.js');
 const DealerView = function(container, hand){
   this.container = container;
   this.hand = hand;
+  this.revealCards = false;
 };
 
 DealerView.prototype.bindEvents = function() {
@@ -25,6 +26,10 @@ DealerView.prototype.bindEvents = function() {
         PubSub.publish('DealerView:dealers-cards-revealed')
       }, 1000)
     });
+    PubSub.subscribe(‘BetView:bet-placed’, (evt) => {
+     this.revealCards = true;
+     this.render(true);
+   })
   };
 
 DealerView.prototype.render = function (firstCardDown) {
@@ -37,7 +42,9 @@ DealerView.prototype.render = function (firstCardDown) {
   totalView.bindEvents();
   const handContainer = this.makeContainer('dealer-hand');
   const handView = new HandView(handContainer, this.hand, firstCardDown);
-  handView.render();
+  if (this.revealCards){
+    handView.render();
+  }
   const rulesView = this.makeContainer('rules-view');
   const rulesList = this.makeRulesList();
   console.log(rulesList);

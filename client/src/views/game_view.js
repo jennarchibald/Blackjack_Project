@@ -13,6 +13,7 @@ const GameView = function(container){
 
 GameView.prototype.bindEvents = function (){
   PubSub.subscribe('Game:hands-ready', (evt) => {
+    this.container.innerHTML = '';
     const bothParticipants = evt.detail;
     this.dealerHand = bothParticipants.dealerHand;
     this.player = bothParticipants.player;
