@@ -39,7 +39,7 @@ ResultView.prototype.render = function (result) {
   resultContainer.appendChild(thisResult);
 
   const nextHandButton = document.createElement('button');
-  nextHandButton.textContent = "Deal Next Hand"
+  nextHandButton.textContent = "Play Next Hand"
   nextHandButton.addEventListener('click', function(){
     PubSub.publish('Result:deal-next-hand')
   });
