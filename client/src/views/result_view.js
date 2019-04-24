@@ -5,6 +5,9 @@ const ResultView = function (container) {
 };
 
 ResultView.prototype.bindEvents = function () {
+
+  this.renderPrompt()
+  
   PubSub.subscribe('Game: results-ready', (evt) => {
     const result = evt.detail;
     this.render(result);
@@ -59,6 +62,15 @@ ResultView.prototype.renderBet = function (bet) {
   this.container.innerHTML = "";
 
   const thisResult = this.buildElement('h2', `Player bet: ${bet}`);
+  resultContainer.appendChild(thisResult);
+}
+
+ResultView.prototype.renderPrompt = function () {
+  const resultContainer = this.container;
+
+  this.container.innerHTML = "";
+
+  const thisResult = this.buildElement('h2', `Place You Bets`);
   resultContainer.appendChild(thisResult);
 }
 
