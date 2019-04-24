@@ -80,11 +80,6 @@ Game.prototype.openingDeal = function(){
   this.dealCard('dealer');
   this.dealCard('player');
   this.dealCard('dealer');
-<<<<<<< HEAD
-=======
-  this.checkHandsForBlackjack();
-
->>>>>>> feature/sounds
 };
 
 // plays the dealers turn
