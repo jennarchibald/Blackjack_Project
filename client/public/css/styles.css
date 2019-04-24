@@ -3,7 +3,7 @@ body {
   box-sizing: content-box;
   font-family: 'Noticia Text', serif;
   margin: 0px;
-
+  color: white;
 }
 
 h2 {
@@ -31,8 +31,9 @@ img {
 div.dealer-view {
   display: grid;
   grid-template-columns:30vw 40vw 30vw;
-  height: 30vh;
+  height: 40vh;
   margin-top: 3vh;
+  overflow: hidden;
 }
 
 div.player-view {
@@ -43,13 +44,13 @@ div.player-view {
 }
 
 div.result-view {
-  height:35vh;
+  height:20vh;
   width: 50%;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -57,9 +58,10 @@ div.dealer-hand, div.player-hand{
   display: flex;
   max-width: 30vw;
   max-height: 30vh;
+  justify-self: center;
 }
 
-.dealer-total, .player-total {
+.dealer-total {
   position: relative;
   float: left;
   text-align: center;
@@ -69,7 +71,42 @@ div.dealer-hand, div.player-hand{
   justify-content: center;
   align-items: center;
   margin: 40px;
-  border: 1px solid white;
+  border: 4px solid white;
+  border-radius: 8px;
+  opacity: 0.85;
+  font-size: 1.5em;
+}
+
+.player-total {
+  position: relative;
+  float: left;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 40px;
+  border: 4px solid white;
+  border-radius: 8px;
+  opacity: 0.85;
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  font-size: 1.5em;
+}
+
+.bets {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.rules-view, .bets {
+  margin: 40px;
+  border: 4px solid white;
   border-radius: 8px;
   opacity: 0.85;
 }
@@ -91,6 +128,10 @@ button {
   margin: 5px;
   border-radius: 5px;
   font-family: 'Noticia Text', serif;
+  background-color: black;
+  color: green;
+  border: 1px solid black;
+
 }
 button:hover {
   -webkit-appearance: none;
@@ -101,7 +142,9 @@ button:hover {
   border-radius: 5px;
   font-family: 'Noticia Text', serif;
   color: green;
-
+  background-color: black;
+  color: yellow;
+  border: 1px solid black;
 }
 
 button.player-buttons {
@@ -149,7 +192,15 @@ img.card-cover {
   border-radius: 50%;
   height: 3em;
   width: 3em;
-  border: 5px dashed black;
+  border: 5px dashed white;
+  color: white;
+  font-size: 1.5em;
+  box-shadow: 4px 4px 4px  rgba(0, 0, 0, 0.4);
+}
+
+.bet-buttons:focus {
+  box-shadow: 1px 1px 1px  rgba(0, 0, 0, 0.4);
+  outline: green;
 }
 
 a, a:hover {
@@ -162,4 +213,79 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+}
+
+.bet-1 {
+  background-color: red;
+}
+
+.bet-5 {
+  background-color: blue;
+}
+
+.bet-10 {
+  background-color: black;
+}
+
+button.place-bet, button.reset-bet {
+  background-color: black;
+  color: green;
+  border: 1px solid black;
+  width: 12em;
+}
+
+button.place-bet:hover, button.reset-bet:hover {
+  background-color: black;
+  color: yellow;
+  border: 1px solid black;
+}
+
+button.place-bet:focus, button.reset-bet:focus {
+  background-color: black;
+  color: red;
+  border: 1px solid black;
+}
+
+button.place-bet:disabled, button.reset-bet:disabled {
+  background-color: black;
+  color: grey;
+  border: 1px solid black;
+}
+
+.bet-buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.current-wallet {
+  margin-top: 0;
+  margin-bottom: 0.4em;
+}
+
+.current-bet {
+  margin-top: 0.2em;
+  margin-bottom: 0.4em;
+}
+
+h4.current-bet, h4.current-wallet {
+  font-size: 1.5em;
+}
+
+ul {
+  list-style: none;
+  padding-inline-start: 15px;
+  padding-inline-end: 15px;
+}
+
+li > a {
+  margin-left: 0;
+}
+li >a:hover {
+  margin-left: 0;
+  color: black;
+}
+
+.result-view {
+  font-size: 1.5em;
 }

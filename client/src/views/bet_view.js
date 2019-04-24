@@ -45,6 +45,7 @@ BetView.prototype.renderBetButton = function (value, container) {
   const betButton = document.createElement("button");
   betButton.textContent = value;
   betButton.id = value;
+  betButton.classList.add(`bet-${value}`)
   betButton.classList.add('bet-buttons')
   betButton.disabled = this.disabled;
   betButton.addEventListener('click', (evt) => {
@@ -83,6 +84,7 @@ BetView.prototype.renderReset = function () {
   const resetBet = document.createElement("button");
   resetBet.textContent = `Reset Bet`;
   resetBet.disabled = this.disabled;
+  resetBet.classList.add('reset-bet')
   resetBet.addEventListener('click', () => {
     PubSub.publish("BetView:reset-bet")
   });
@@ -98,14 +100,14 @@ BetView.prototype.renderWallet = function (value) {
 };
 
 //redners the warning about not having enough money to make that bet
-BetView.prototype.insufficientFunds = function(message){
-  const insufficientFunds = document.createElement("h4");
-  insufficientFunds.textContent = message;
-  insufficientFunds.classList.add('insufficient-funds');
-  this.container.appendChild(insufficientFunds);
-  window.setTimeout(() => {
-    this.container.removeChild(insufficientFunds)
-  }, 800);
-};
+// BetView.prototype.insufficientFunds = function(message){
+//   const insufficientFunds = document.createElement("h4");
+//   insufficientFunds.textContent = message;
+//   insufficientFunds.classList.add('insufficient-funds');
+//   this.container.appendChild(insufficientFunds);
+//   window.setTimeout(() => {
+//     this.container.removeChild(insufficientFunds)
+//   }, 800);
+// };
 
 module.exports = BetView;
