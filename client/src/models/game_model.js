@@ -10,6 +10,7 @@ const Game = function(){
   this.dealer = {hand: null}
   this.intendedBet = null
   this.actualBet = null
+  this.over = false;
 };
 
 Game.prototype.bindEvents = function(){
@@ -36,7 +37,7 @@ Game.prototype.bindEvents = function(){
   PubSub.subscribe("BetView:bet-placed", (evt) => {
     this.actualBet = evt.detail;
     this.player.placeBet(this.actualBet);
-    // this.resetBet()
+    this.resetBet()
     PubSub.publish('Game:wallet-updated', this.player.wallet);
   })
 
@@ -63,6 +64,7 @@ Game.prototype.getDeck = function () {
 
 // shuffles the deck and deals two cards to each player
 Game.prototype.openingDeal = function(){
+  this.over = false;
   this.intendedBet = null;
   this.actualBet = null;
   this.deck.shuffle();
@@ -80,7 +82,7 @@ Game.prototype.dealersTurn = function () {
     this.dealCard('dealer');
     window.setTimeout(this.publishDealerCard, 1000)
     this.publishDealerBust()
-  } else {
+  } else if (!this.over){
     const result = this.determineWinner();
     window.setTimeout(() => {
       PubSub.publish('Game: results-ready', result);
@@ -113,6 +115,7 @@ Game.prototype.dealCard = function(handOwner){
 
 //compares values of two hands and returns which is higher
 Game.prototype.determineWinner = function(){
+  this.over = true;
   const playerHand = this.player.hand.totalValue();
   const dealerHand = this.dealer.hand.totalValue();
   const result = {}
@@ -152,7 +155,8 @@ Game.prototype.resetBet = function (){
 
 Game.prototype.winCondition = function (){
   const winnings = (this.actualBet * 2);
-  this.player.wallet += winnings;
+  this.player.winMoney(winnings)
+  console.log(winnings);
   PubSub.publish('Game:wallet-updated', this.player.wallet);
 };
 
