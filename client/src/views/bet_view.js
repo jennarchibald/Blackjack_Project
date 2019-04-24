@@ -5,6 +5,8 @@ const BetView = function (container, player, disabled) {
   this.betValue = 0;
   this.wallet = player.wallet
   this.disabled = disabled;
+  this.betSound = new Audio('sounds/poker-chips.mp3');
+  this.openingDealSound = new Audio('sounds/cardFan1.wav');
 };
 
 BetView.prototype.bindEvents = function () {
@@ -50,6 +52,7 @@ BetView.prototype.renderBetButton = function (value, container) {
   betButton.disabled = this.disabled;
   betButton.addEventListener('click', (evt) => {
     PubSub.publish("BetView:bet-increased", betButton.id);
+    this.betSound.play()
   });
   container.appendChild(betButton)
 }
@@ -63,6 +66,7 @@ BetView.prototype.renderPlaceBet = function (value) {
   placeBet.addEventListener('click', () => {
     if (this.betValue > 0){
       PubSub.publish("BetView:bet-placed", this.betValue);
+      this.openingDealSound.play();
       this.disabled = true;
       this.betValue = 0;
       this.render()

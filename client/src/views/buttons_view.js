@@ -3,6 +3,8 @@ const PubSub = require('../helpers/pub_sub.js');
 const ButtonsView = function(container, disabled){
   this.container = container;
   this.disabled = disabled;
+  this.hitSound = new Audio('sounds/deal.wav');
+  this.stickSound = new Audio('sounds/stick.wav')
 };
 
 ButtonsView.prototype.bindEvents = function () {
@@ -26,7 +28,9 @@ ButtonsView.prototype.renderResultButton = function () {
   resultButton.classList.add('player-buttons');
   resultButton.disabled = this.disabled;
   resultButton.addEventListener('click', () => {
+    this.stickSound.play();
     PubSub.publish("ButtonsView:stick-clicked");
+
   });
   resultButton.addEventListener('click', () => {
     this.disabled = true;
@@ -42,6 +46,7 @@ ButtonsView.prototype.renderHitButton = function (){
   hitButton.classList.add('player-buttons');
   hitButton.disabled = this.disabled;
   hitButton.addEventListener('click', () => {
+    this.hitSound.play()
     PubSub.publish("ButtonsView:hit-clicked");
   });
   this.container.appendChild(hitButton);
