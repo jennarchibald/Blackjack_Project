@@ -33,7 +33,6 @@ PlayerView.prototype.render = function () {
   const totalContainer = this.makeContainer('player-total')
   const totalView = new TotalView(totalContainer, 'Player', this.hand.totalValue());
   totalView.bindEvents();
-  totalView.render();
 
 
   const handContainer = this.makeContainer('player-hand');
@@ -45,9 +44,13 @@ PlayerView.prototype.render = function () {
   if (this.revealCards){
     handView.render();
     buttonsView.render();
+    totalView.render(true);
 
     buttonsView.bindEvents();
+  } else {
+    totalView.render()
   }
+
 
   const betContainer = this.makeContainer('bets');
   const betView = new BetView(betContainer, this.player, this.betDisabled);

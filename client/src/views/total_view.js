@@ -25,16 +25,19 @@ TotalView.prototype.bindEvents = function() {
   });
 }
 
-TotalView.prototype.render = function () {
+TotalView.prototype.render = function (reveal) {
   this.container.innerHTML = '';
 
   const ownerHeading = document.createElement('h2');
   ownerHeading.textContent = this.owner;
   this.container.appendChild(ownerHeading);
 
-  const totalHeading = document.createElement('h4');
-  totalHeading.textContent = `Hand Value: ${this.total}`;
-  this.container.appendChild(totalHeading);
+  if (reveal) {
+
+    const totalHeading = document.createElement('h4');
+    totalHeading.textContent = `Hand Value: ${this.total}`;
+    this.container.appendChild(totalHeading);
+  }
 
   if (this.bustStatus && this.owner === "Player") {
     this.container.appendChild(this.bustStatus);
