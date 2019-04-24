@@ -113,6 +113,7 @@ div.dealer-hand, div.player-hand{
 
 .card-wrapper{
   overflow: hidden;
+  width: 100%;
 }
 
 .card-wrapper:last-child{

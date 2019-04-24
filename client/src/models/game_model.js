@@ -77,7 +77,6 @@ Game.prototype.openingDeal = function(){
   this.dealCard('dealer');
   this.dealCard('player');
   this.dealCard('dealer');
-  this.checkHandsForBlackjack();
 };
 
 // plays the dealers turn
@@ -114,6 +113,7 @@ Game.prototype.dealCard = function(handOwner){
   const card = this.deck.getCard();
   this[handOwner].hand.cards.push(card);
   this[handOwner].hand.checkForBust();
+  this[handOwner].hand.checkForBlackjack();
   return card;
 };
 
