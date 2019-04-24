@@ -74,7 +74,7 @@ BetView.prototype.renderPlaceBet = function (value) {
 //shows the value of the current bet
 BetView.prototype.renderCurrentBet = function (value) {
   const currentBet = document.createElement("h4");
-  currentBet.textContent = `Current bet: ${value}`;
+  currentBet.textContent = `Current Bet: ${value}`;
   currentBet.classList.add('current-bet');
   this.container.appendChild(currentBet);
 };

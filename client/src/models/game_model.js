@@ -20,9 +20,11 @@ Game.prototype.bindEvents = function(){
   });
   PubSub.subscribe("ButtonsView:hit-clicked", (evt) => {
     this.dealCard('player');
-    PubSub.publish('Game:player-hand-ready', this.player.hand);
     if (this.player.hand.checkForBust()){
+      PubSub.publish('Game:player-hand-ready', this.player.hand);
       PubSub.publish('Game:player-bust');
+    } else {
+      PubSub.publish('Game:player-hand-ready', this.player.hand);
     }
   });
   PubSub.subscribe('GameView:dealer-card-displayed', (evt) => {
