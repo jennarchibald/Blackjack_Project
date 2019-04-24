@@ -10,12 +10,13 @@ ResultView.prototype.bindEvents = function () {
 
   PubSub.subscribe('Game: results-ready', (evt) => {
     const result = evt.detail;
-    this.render(result);
+    if (result.gameOver){
+      this.renderGameOver(result.result)
+    } else {
+      this.render(result.result);
+    }
   });
 
-  PubSub.subscribe('Game:game-is-lost', (evt) => {
-    this.renderGameOver()
-  });
 
   PubSub.subscribe('BetView:bet-placed', (evt) => {
     const bet = evt.detail;
@@ -45,11 +46,17 @@ ResultView.prototype.render = function (result) {
   resultContainer.appendChild(nextHandButton);
 }
 
-ResultView.prototype.renderGameOver = function () {
+ResultView.prototype.renderGameOver = function (result) {
+  const resultContainer = this.container;
+
+  this.container.innerHTML = "";
+  const thisResult = this.buildElement('h2', result);
+  resultContainer.appendChild(thisResult);
+
   const gameOver = this.buildElement('h2', "Game Over");
   resultContainer.appendChild(gameOver);
 
-
+  console.log('hello');
   const reloadButton = document.createElement('button');
   reloadButton.textContent = "Play again?"
   reloadButton.addEventListener('click', function(){location.reload()});
