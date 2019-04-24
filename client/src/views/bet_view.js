@@ -13,40 +13,45 @@ BetView.prototype.bindEvents = function () {
     this.render();
   });
   PubSub.subscribe('Game:bet-changed', (evt) => {
-    const betAmount = evt.detail
-    this.betValue += parseInt(betAmount, 10);
+    this.betValue = evt.detail;
     this.render();
   });
+  PubSub.subscribe('Game:not-enough-money', (evt) => {
+    this.insufficientFunds(evt.detail);
+  })
 };
 
-BetView.prototype.render = function () {
+BetView.prototype.render = function (disabled = false) {
   this.container.innerHTML = '';
-  this.renderBetButton(1);
-  this.renderBetButton(5);
-  this.renderBetButton(10);
-  this.renderPlaceBet('Place Bet');
+  this.renderBetButton(1, disabled);
+  this.renderBetButton(5, disabled);
+  this.renderBetButton(10, disabled);
+  this.renderPlaceBet('Place Bet', disabled);
   this.renderCurrentBet(this.betValue);
   this.renderWallet(this.wallet);
-  this.renderReset('Reset Bet');
+  this.renderReset(disabled);
 };
 
-BetView.prototype.renderBetButton = function (value) {
+BetView.prototype.renderBetButton = function (value, disabled) {
   const betButton = document.createElement("button");
   betButton.textContent = value;
   betButton.id = value;
   betButton.classList.add('bet-buttons')
+  betButton.disabled = disabled;
   betButton.addEventListener('click', (evt) => {
     PubSub.publish("BetView:bet-increased", betButton.id);
   });
   this.container.appendChild(betButton)
 }
 
-BetView.prototype.renderPlaceBet = function (value) {
+BetView.prototype.renderPlaceBet = function (value, disabled) {
   const placeBet = document.createElement("button");
   placeBet.textContent = value;
   placeBet.classList.add('place-bet');
+  placeBet.disabled = disabled;
   placeBet.addEventListener('click', () => {
     PubSub.publish("BetView:bet-placed", this.betValue);
+    this.render(true)
   });
   this.container.appendChild(placeBet);
 }
@@ -58,9 +63,10 @@ BetView.prototype.renderCurrentBet = function (value) {
   this.container.appendChild(currentBet);
 };
 
-BetView.prototype.renderReset = function () {
+BetView.prototype.renderReset = function (disabled) {
   const resetBet = document.createElement("button");
   resetBet.textContent = `Reset Bet`;
+  resetBet.disabled = disabled;
   resetBet.addEventListener('click', () => {
     PubSub.publish("BetView:reset-bet")
   });
@@ -74,13 +80,14 @@ BetView.prototype.renderWallet = function (value) {
   this.container.appendChild(currentWallet);
 };
 
-BetView.prototype.insufficientFunds = function(){
-  PubSub.subscribe('Game:not-enough-money', (evt) => {
+BetView.prototype.insufficientFunds = function(message){
   const insufficientFunds = document.createElement("h4");
-  insufficientFunds.textContent = evt.value;
+  insufficientFunds.textContent = message;
   insufficientFunds.classList.add('insufficient-funds');
   this.container.appendChild(insufficientFunds);
-})
+  window.setTimeout(() => {
+    this.container.removeChild(insufficientFunds)
+  }, 800);
 };
 
 module.exports = BetView;
