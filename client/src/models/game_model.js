@@ -113,9 +113,11 @@ Game.prototype.determineWinner = function(){
   if (this.player.hand.checkForBust()){
     return "House wins"
   } else if (this.dealer.hand.checkForBust()){
+    this.winCondition();
     return "You win";
   } else {
     if (playerHand > dealerHand) {
+      this.winCondition();
       return "You win";
     } else if (dealerHand > playerHand){
       return "House wins"
@@ -138,7 +140,13 @@ Game.prototype.checkMoneyForBet = function (amount){
   Game.prototype.resetBet = function (){
     this.intendedBet = 0;
     PubSub.publish('Game:bet-changed', this.intendedBet);
-  }
+  };
+
+  Game.prototype.winCondition = function (){
+    const winnings = (this.actualBet * 2);
+    this.player.wallet += winnings;
+    PubSub.publish('Game:wallet-updated', this.player.wallet);
+  };
 
 
 
