@@ -8,12 +8,18 @@ const PlayerView = function(container, player, hand){
   this.container = container;
   this.player = player;
   this.hand = hand;
+  this.betDisabled = false;
+  this.buttonsDisabled = true;
 };
 
 PlayerView.prototype.bindEvents = function(){
   PubSub.subscribe('Game:player-hand-ready', (evt) => {
     this.hand = evt.detail
     this.render();
+  })
+  PubSub.subscribe("BetView:bet-placed", (evt) => {
+    this.betDisabled = true;
+    this.buttonsDisabled = false;
   })
 };
 
@@ -35,7 +41,7 @@ PlayerView.prototype.render = function () {
   buttonsView.bindEvents();
 
   const betContainer = this.makeContainer('bets');
-  const betView = new BetView(betContainer, this.player);
+  const betView = new BetView(betContainer, this.player, this.betDisabled);
   betView.bindEvents();
   betView.render();
 };

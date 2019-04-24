@@ -1,9 +1,10 @@
 const PubSub = require('../helpers/pub_sub.js');
 
-const BetView = function (container, player) {
+const BetView = function (container, player, disabled) {
   this.container = container;
   this.betValue = 0;
   this.wallet = player.wallet
+  this.disabled = disabled;
 };
 
 BetView.prototype.bindEvents = function () {
@@ -21,37 +22,41 @@ BetView.prototype.bindEvents = function () {
   })
 };
 
-BetView.prototype.render = function (disabled = false) {
+BetView.prototype.render = function () {
   this.container.innerHTML = '';
-  this.renderBetButton(1, disabled);
-  this.renderBetButton(5, disabled);
-  this.renderBetButton(10, disabled);
-  this.renderPlaceBet('Place Bet', disabled);
+  this.renderBetButton(1);
+  this.renderBetButton(5);
+  this.renderBetButton(10);
+  this.renderPlaceBet('Place Bet');
   this.renderCurrentBet(this.betValue);
   this.renderWallet(this.wallet);
-  this.renderReset(disabled);
+  this.renderReset();
 };
 
-BetView.prototype.renderBetButton = function (value, disabled) {
+BetView.prototype.renderBetButton = function (value) {
   const betButton = document.createElement("button");
   betButton.textContent = value;
   betButton.id = value;
   betButton.classList.add('bet-buttons')
-  betButton.disabled = disabled;
+  betButton.disabled = this.disabled;
   betButton.addEventListener('click', (evt) => {
     PubSub.publish("BetView:bet-increased", betButton.id);
   });
   this.container.appendChild(betButton)
 }
 
-BetView.prototype.renderPlaceBet = function (value, disabled) {
+BetView.prototype.renderPlaceBet = function (value) {
   const placeBet = document.createElement("button");
   placeBet.textContent = value;
   placeBet.classList.add('place-bet');
-  placeBet.disabled = disabled;
+  placeBet.disabled = this.disabled;
   placeBet.addEventListener('click', () => {
-    PubSub.publish("BetView:bet-placed", this.betValue);
-    this.render(true)
+    if (this.betValue > 0){
+      PubSub.publish("BetView:bet-placed", this.betValue);
+      this.disabled = true;
+      this.betValue = 0;
+      this.render()
+    }
   });
   this.container.appendChild(placeBet);
 }
@@ -63,10 +68,10 @@ BetView.prototype.renderCurrentBet = function (value) {
   this.container.appendChild(currentBet);
 };
 
-BetView.prototype.renderReset = function (disabled) {
+BetView.prototype.renderReset = function () {
   const resetBet = document.createElement("button");
   resetBet.textContent = `Reset Bet`;
-  resetBet.disabled = disabled;
+  resetBet.disabled = this.disabled;
   resetBet.addEventListener('click', () => {
     PubSub.publish("BetView:reset-bet")
   });
