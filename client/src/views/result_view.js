@@ -46,6 +46,10 @@ ResultView.prototype.render = function (result) {
   resultContainer.appendChild(nextHandButton);
 }
 
+<<<<<<< HEAD
+//displays game over when the wallet is empty
+ResultView.prototype.renderGameOver = function () {
+=======
 ResultView.prototype.renderGameOver = function (result) {
   const resultContainer = this.container;
 
@@ -53,6 +57,7 @@ ResultView.prototype.renderGameOver = function (result) {
   const thisResult = this.buildElement('h2', result);
   resultContainer.appendChild(thisResult);
 
+>>>>>>> develop
   const gameOver = this.buildElement('h2', "Game Over");
   resultContainer.appendChild(gameOver);
 
@@ -63,6 +68,7 @@ ResultView.prototype.renderGameOver = function (result) {
   resultContainer.appendChild(reloadButton);
 };
 
+//shows the confirmed player bet
 ResultView.prototype.renderBet = function (bet) {
   const resultContainer = this.container;
 
@@ -72,6 +78,7 @@ ResultView.prototype.renderBet = function (bet) {
   resultContainer.appendChild(thisResult);
 }
 
+//default view for the conter of the screen prior to bets being placed
 ResultView.prototype.renderPrompt = function () {
   const resultContainer = this.container;
 

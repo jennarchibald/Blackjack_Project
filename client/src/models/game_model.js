@@ -36,10 +36,8 @@ Game.prototype.bindEvents = function(){
   PubSub.subscribe("BetView:bet-placed", (evt) => {
     this.actualBet = evt.detail;
     this.player.placeBet(this.actualBet);
-    // this.resetBet()
     PubSub.publish('Game:wallet-updated', this.player.wallet);
   })
-
   PubSub.subscribe('Result:deal-next-hand', (evt) => {
     this.openingDeal()
     PubSub.publish('Game:hands-ready', { dealerHand: this.dealer.hand, player: this.player});
@@ -51,6 +49,7 @@ Game.prototype.newPlayer = function() {
   this.player.save();
 };
 
+//pulls the deck
 Game.prototype.getDeck = function () {
   this.deck = new Deck;
   const request = new RequestHelper('http://localhost:3000/api/deck');
@@ -93,8 +92,8 @@ Game.prototype.publishDealerCard = function (){
   PubSub.publish("Game:dealer-dealt-card");
 };
 
+// publishes when the dealer has gone bust
 Game.prototype.publishDealerBust = function (){
-
   if (this.dealer.hand.checkForBust()){
     window.setTimeout(() => {
       PubSub.publish("Game:dealer-bust");
@@ -135,6 +134,7 @@ Game.prototype.determineWinner = function(){
   return result;
 };
 
+//checks if the players wallet has enough in it for the player to post the bet
 Game.prototype.checkMoneyForBet = function (amount){
   const bet = this.intendedBet + parseInt(amount, 10);
   if (this.player.wallet >= bet) {
@@ -145,6 +145,25 @@ Game.prototype.checkMoneyForBet = function (amount){
   };
 };
 
+<<<<<<< HEAD
+//resets the intended bet to zero after placing the bet.
+  Game.prototype.resetBet = function (){
+    this.intendedBet = 0;
+    PubSub.publish('Game:bet-changed', this.intendedBet);
+  };
+
+//returns 2:1 winnings on a win
+  Game.prototype.winCondition = function (){
+    const winnings = (this.actualBet * 2);
+    this.player.wallet += winnings;
+    PubSub.publish('Game:wallet-updated', this.player.wallet);
+  };
+
+//affects the players wallet on a lose condition
+  Game.prototype.gameIsLost = function () {
+    return (this.player.wallet < 1);
+  };
+=======
 Game.prototype.resetBet = function (){
   this.intendedBet = 0;
   PubSub.publish('Game:bet-changed', this.intendedBet);
@@ -159,6 +178,7 @@ Game.prototype.winCondition = function (){
 Game.prototype.gameIsLost = function () {
   return (this.player.wallet < 1);
 };
+>>>>>>> develop
 
 
 module.exports = Game;

@@ -52,11 +52,6 @@ DealerView.prototype.render = function (firstCardDown) {
   rulesView.appendChild(rulesList);
 };
 
-
-DealerView.prototype.handFirstCardDown = function () {
-
-};
-
 DealerView.prototype.makeContainer = function (containerClass) {
   const container = document.createElement('div');
   container.classList.add(containerClass);

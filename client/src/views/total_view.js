@@ -48,8 +48,6 @@ TotalView.prototype.render = function (reveal) {
     this.container.appendChild(this.bustStatusDealer);
   }
 
-
-
 };
 
 
