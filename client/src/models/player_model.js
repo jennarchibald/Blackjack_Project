@@ -6,16 +6,19 @@ const Player = function(){
   this.wallet = 100;
 };
 
+//takes the bet from the players wallet
 Player.prototype.placeBet = function(amount) {
   this.wallet -= amount;
   this.updateWallet();
 };
 
+//adds the winnings to a players wallet
 Player.prototype.winMoney = function(amount){
   this.wallet += amount;
   this.updateWallet();
 };
 
+//changes a players displayed wallet to refect its current value
 Player.prototype.updateWallet = function(){
   const request = new RequestHelper(`http://localhost:3000/api/players/${this.id}`)
   request.put({"wallet": this.wallet})
@@ -28,6 +31,7 @@ Player.prototype.updateWallet = function(){
   .catch(console.error);
 };
 
+//saves the wallet of a specific player
 Player.prototype.save = function (){
   const request = new RequestHelper('http://localhost:3000/api/players')
   request.post({"wallet": this.wallet})

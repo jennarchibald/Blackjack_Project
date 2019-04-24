@@ -45,8 +45,6 @@ TotalView.prototype.render = function () {
     this.container.appendChild(this.bustStatusDealer);
   }
 
-
-
 };
 
 

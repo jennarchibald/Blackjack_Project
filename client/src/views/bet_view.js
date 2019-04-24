@@ -33,6 +33,7 @@ BetView.prototype.render = function () {
   this.renderReset();
 };
 
+//creates each of the poker-chip style buttons
 BetView.prototype.renderBetButton = function (value) {
   const betButton = document.createElement("button");
   betButton.textContent = value;
@@ -45,6 +46,7 @@ BetView.prototype.renderBetButton = function (value) {
   this.container.appendChild(betButton)
 }
 
+//renders the place bet button. disabled unless bet is greater than 0
 BetView.prototype.renderPlaceBet = function (value) {
   const placeBet = document.createElement("button");
   placeBet.textContent = value;
@@ -61,6 +63,7 @@ BetView.prototype.renderPlaceBet = function (value) {
   this.container.appendChild(placeBet);
 }
 
+//shows the value of the current bet
 BetView.prototype.renderCurrentBet = function (value) {
   const currentBet = document.createElement("h4");
   currentBet.textContent = `Current bet: ${value}`;
@@ -68,6 +71,7 @@ BetView.prototype.renderCurrentBet = function (value) {
   this.container.appendChild(currentBet);
 };
 
+//renders the button which will reset the bet to zero
 BetView.prototype.renderReset = function () {
   const resetBet = document.createElement("button");
   resetBet.textContent = `Reset Bet`;
@@ -78,6 +82,7 @@ BetView.prototype.renderReset = function () {
   this.container.appendChild(resetBet);
 };
 
+//renders the current value of the wallet
 BetView.prototype.renderWallet = function (value) {
   const currentWallet = document.createElement("h4");
   currentWallet.textContent = `Current Wallet: ${value}`;
@@ -85,6 +90,7 @@ BetView.prototype.renderWallet = function (value) {
   this.container.appendChild(currentWallet);
 };
 
+//redners the warning about not having enough money to make that bet
 BetView.prototype.insufficientFunds = function(message){
   const insufficientFunds = document.createElement("h4");
   insufficientFunds.textContent = message;
