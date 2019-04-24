@@ -78,7 +78,7 @@ BetView.prototype.renderPlaceBet = function (value) {
 //shows the value of the current bet
 BetView.prototype.renderCurrentBet = function (value) {
   const currentBet = document.createElement("h4");
-  currentBet.textContent = `Current Bet: ${value}`;
+  currentBet.textContent = `Amount to Bet: ${value}`;
   currentBet.classList.add('current-bet');
   this.container.appendChild(currentBet);
 };
@@ -98,7 +98,7 @@ BetView.prototype.renderReset = function () {
 //renders the current value of the wallet
 BetView.prototype.renderWallet = function (value) {
   const currentWallet = document.createElement("h4");
-  currentWallet.textContent = `Current Wallet: ${value}`;
+  currentWallet.textContent = `Wallet: ${value}`;
   currentWallet.classList.add('current-wallet');
   this.container.appendChild(currentWallet);
 };
