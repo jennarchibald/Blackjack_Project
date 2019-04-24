@@ -31,10 +31,7 @@ BetView.prototype.render = function () {
   this.renderReset();
 };
 
-<<<<<<< HEAD
-//creates each of the poker-chip style buttons
-BetView.prototype.renderBetButton = function (value) {
-=======
+
 BetView.prototype.renderButtons = function () {
   const div = document.createElement('div');
   div.classList.add('bet-buttons-container');
@@ -45,7 +42,6 @@ BetView.prototype.renderButtons = function () {
 };
 
 BetView.prototype.renderBetButton = function (value, container) {
->>>>>>> develop
   const betButton = document.createElement("button");
   betButton.textContent = value;
   betButton.id = value;

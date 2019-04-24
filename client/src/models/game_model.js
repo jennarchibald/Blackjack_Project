@@ -145,7 +145,7 @@ Game.prototype.checkMoneyForBet = function (amount){
   };
 };
 
-<<<<<<< HEAD
+
 //resets the intended bet to zero after placing the bet.
   Game.prototype.resetBet = function (){
     this.intendedBet = 0;
@@ -155,7 +155,7 @@ Game.prototype.checkMoneyForBet = function (amount){
 //returns 2:1 winnings on a win
   Game.prototype.winCondition = function (){
     const winnings = (this.actualBet * 2);
-    this.player.wallet += winnings;
+    this.player.winMoney(winnings);
     PubSub.publish('Game:wallet-updated', this.player.wallet);
   };
 
@@ -163,22 +163,7 @@ Game.prototype.checkMoneyForBet = function (amount){
   Game.prototype.gameIsLost = function () {
     return (this.player.wallet < 1);
   };
-=======
-Game.prototype.resetBet = function (){
-  this.intendedBet = 0;
-  PubSub.publish('Game:bet-changed', this.intendedBet);
-};
 
-Game.prototype.winCondition = function (){
-  const winnings = (this.actualBet * 2);
-  this.player.wallet += winnings;
-  PubSub.publish('Game:wallet-updated', this.player.wallet);
-};
-
-Game.prototype.gameIsLost = function () {
-  return (this.player.wallet < 1);
-};
->>>>>>> develop
 
 
 module.exports = Game;

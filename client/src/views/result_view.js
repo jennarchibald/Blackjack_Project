@@ -46,10 +46,7 @@ ResultView.prototype.render = function (result) {
   resultContainer.appendChild(nextHandButton);
 }
 
-<<<<<<< HEAD
-//displays game over when the wallet is empty
-ResultView.prototype.renderGameOver = function () {
-=======
+
 ResultView.prototype.renderGameOver = function (result) {
   const resultContainer = this.container;
 
@@ -57,11 +54,10 @@ ResultView.prototype.renderGameOver = function (result) {
   const thisResult = this.buildElement('h2', result);
   resultContainer.appendChild(thisResult);
 
->>>>>>> develop
+
   const gameOver = this.buildElement('h2', "Game Over");
   resultContainer.appendChild(gameOver);
 
-  console.log('hello');
   const reloadButton = document.createElement('button');
   reloadButton.textContent = "Play again?"
   reloadButton.addEventListener('click', function(){location.reload()});
