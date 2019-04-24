@@ -8,11 +8,16 @@ const PlayerView = function(container, player, hand){
   this.container = container;
   this.player = player;
   this.hand = hand;
+  this.revealCards = false
 };
 
 PlayerView.prototype.bindEvents = function(){
   PubSub.subscribe('Game:player-hand-ready', (evt) => {
     this.hand = evt.detail
+    this.render();
+  })
+  PubSub.subscribe('BetView:bet-placed', (evt) => {
+    this.revealCards = true;
     this.render();
   })
 };
@@ -27,8 +32,11 @@ PlayerView.prototype.render = function () {
 
   const handContainer = this.makeContainer('player-hand');
   const handView = new HandView(handContainer, this.hand);
-  handView.render();
 
+  if (this.revealCards){
+  handView.render();
+  }
+  
   const buttonsContainer = this.makeContainer('buttons');
   const buttonsView = new ButtonsView(buttonsContainer);
   buttonsView.render();
