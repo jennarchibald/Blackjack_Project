@@ -7,7 +7,7 @@ const ResultView = function (container) {
 ResultView.prototype.bindEvents = function () {
 
   this.renderPrompt()
-  
+
   PubSub.subscribe('Game: results-ready', (evt) => {
     const result = evt.detail;
     this.render(result);
@@ -70,7 +70,7 @@ ResultView.prototype.renderPrompt = function () {
 
   this.container.innerHTML = "";
 
-  const thisResult = this.buildElement('h2', `Place You Bets`);
+  const thisResult = this.buildElement('h2', `Place Your Bets`);
   resultContainer.appendChild(thisResult);
 }
 
