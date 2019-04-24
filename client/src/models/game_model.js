@@ -70,7 +70,6 @@ Game.prototype.openingDeal = function(){
 Game.prototype.dealersTurn = function () {
   // console.log(this.dealer.hand);
   if (this.dealer.hand.totalValue() < 17){
-
     this.dealCard('dealer');
     window.setTimeout(this.publishDealerCard, 1000)
     this.publishDealerBust()
