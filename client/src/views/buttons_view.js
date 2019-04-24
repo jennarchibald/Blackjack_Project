@@ -8,6 +8,9 @@ ButtonsView.prototype.bindEvents = function () {
   PubSub.subscribe('Game:player-bust', (evt) => {
     this.disableButtons();
   })
+  PubSub.subscribe("BetView:bet-placed", (evt) => {
+    this.enableButtons();
+  })
 };
 
 ButtonsView.prototype.render = function () {
@@ -20,6 +23,7 @@ ButtonsView.prototype.renderResultButton = function () {
   const resultButton = document.createElement('button');
   resultButton.textContent = "Stick";
   resultButton.classList.add('player-buttons');
+  resultButton.disabled = true;
   resultButton.addEventListener('click', () => {
     PubSub.publish("ButtonsView:stick-clicked");
   });
@@ -33,6 +37,7 @@ ButtonsView.prototype.renderHitButton = function (){
   const hitButton = document.createElement('button');
   hitButton.textContent = "Hit";
   hitButton.classList.add('player-buttons');
+  hitButton.disabled = true;
   hitButton.addEventListener('click', () => {
     PubSub.publish("ButtonsView:hit-clicked");
   });
@@ -43,6 +48,13 @@ ButtonsView.prototype.disableButtons = function (){
   buttons = document.querySelectorAll('.player-buttons');
   buttons.forEach((button) => {
     button.disabled = true;
+  });
+};
+
+ButtonsView.prototype.enableButtons = function (){
+  buttons = document.querySelectorAll('.player-buttons');
+  buttons.forEach((button) => {
+    button.disabled = false;
   });
 };
 
