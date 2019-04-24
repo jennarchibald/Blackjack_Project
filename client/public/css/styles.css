@@ -57,7 +57,6 @@ div.dealer-hand, div.player-hand{
   display: flex;
   max-width: 30vw;
   max-height: 30vh;
-  /* justify-content: center; */
 }
 
 .dealer-total, .player-total {
@@ -74,12 +73,6 @@ div.dealer-hand, div.player-hand{
   border-radius: 8px;
   opacity: 0.85;
 }
-
-/* .player-total {
-  position: relative;
-  float: left;
-  text-align: center;
-} */
 
 .card-wrapper{
   overflow: hidden;

@@ -44,11 +44,8 @@ TotalView.prototype.render = function (reveal) {
   }
 
   if (this.bustStatusDealer && this.owner == "Dealer") {
-    console.log('working');
     this.container.appendChild(this.bustStatusDealer);
   }
-
-
 
 };
 

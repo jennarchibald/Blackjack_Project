@@ -52,11 +52,6 @@ DealerView.prototype.render = function (firstCardDown) {
   rulesView.appendChild(rulesList);
 };
 
-
-DealerView.prototype.handFirstCardDown = function () {
-
-};
-
 DealerView.prototype.makeContainer = function (containerClass) {
   const container = document.createElement('div');
   container.classList.add(containerClass);
@@ -82,7 +77,7 @@ DealerView.prototype.makeRulesList = function () {
   rule3.textContent = 'If your score goes above 21, you lose';
   rule4.textContent = 'Score higher than the dealer to win';
   rule5.textContent = 'A push is a draw';
-  rule6.textContent = 'The dealer must draw to a minimum score of 21';
+  rule6.textContent = 'The dealer must draw to a minimum score of 17';
   rule7.textContent = 'Wins are paid at 2:1';
   link.textContent = 'When the fun stops, Stop';
   link.href = 'http://www.whenthefunstops.co.uk/';

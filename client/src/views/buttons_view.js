@@ -19,6 +19,7 @@ ButtonsView.prototype.render = function () {
   this.renderResultButton();
 };
 
+//renders the stick button. disabled until a bet is made
 ButtonsView.prototype.renderResultButton = function () {
   const resultButton = document.createElement('button');
   resultButton.textContent = "Stick";
@@ -34,6 +35,7 @@ ButtonsView.prototype.renderResultButton = function () {
   this.container.appendChild(resultButton);
 };
 
+//renders the hit button. disbaled until a bet is placed
 ButtonsView.prototype.renderHitButton = function (){
   const hitButton = document.createElement('button');
   hitButton.textContent = "Hit";
@@ -44,19 +46,5 @@ ButtonsView.prototype.renderHitButton = function (){
   });
   this.container.appendChild(hitButton);
 };
-
-// ButtonsView.prototype.disableButtons = function (){
-//   buttons = document.querySelectorAll('.player-buttons');
-//   buttons.forEach((button) => {
-//     button.disabled = true;
-//   });
-// };
-//
-// ButtonsView.prototype.enableButtons = function (){
-//   buttons = document.querySelectorAll('.player-buttons');
-//   buttons.forEach((button) => {
-//     button.disabled = false;
-//   });
-// };
 
 module.exports = ButtonsView;
