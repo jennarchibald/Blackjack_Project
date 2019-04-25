@@ -4,6 +4,7 @@ const Player = function(){
   this.id = null;
   this.hand = null;
   this.wallet = 100;
+  this.winSound = new Audio('sounds/win.mp3');
 };
 
 //takes the bet from the players wallet
@@ -16,6 +17,9 @@ Player.prototype.placeBet = function(amount) {
 Player.prototype.winMoney = function(amount){
   this.wallet += amount;
   this.updateWallet();
+  window.setTimeout(() => {
+    this.winSound.play()
+  }, 1000)
 };
 
 //changes a players displayed wallet to refect its current value

@@ -5,6 +5,9 @@ const ResultView = function (container) {
 };
 
 ResultView.prototype.bindEvents = function () {
+  PubSub.subscribe('Game:hands-ready', (evt) => {
+    this.render();
+  });
 
   this.renderPrompt()
 

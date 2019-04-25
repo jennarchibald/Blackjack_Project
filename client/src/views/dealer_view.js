@@ -6,31 +6,39 @@ const DealerView = function(container, hand){
   this.container = container;
   this.hand = hand;
   this.revealCards = false;
+  this.hitSound = new Audio('sounds/deal.wav');
+  this.soundPlayed = false;
 };
 
 DealerView.prototype.bindEvents = function() {
-    PubSub.subscribe('Game:dealer-dealt-card', (evt)=>{
-      this.render(false);
-      PubSub.publish('GameView:dealer-card-displayed');
-    });
+  PubSub.subscribe('Game:hands-ready', (evt) => {
+    this.hand = evt.detail.dealerHand;
+    this.revealCards = false;
+    this.render();
+  })
 
-    PubSub.subscribe("ButtonsView:stick-clicked" , (evt) => {
-      window.setTimeout(() => {
-        this.render();
-        PubSub.publish('DealerView:dealers-cards-revealed')
-      }, 1000)
-    });
-    PubSub.subscribe('Game:player-bust' , (evt) => {
-      window.setTimeout(() => {
-        this.render();
-        PubSub.publish('DealerView:dealers-cards-revealed')
-      }, 1000)
-    });
-    PubSub.subscribe('BetView:bet-placed', (evt) => {
-     this.revealCards = true;
-     this.render(true);
-   })
-  };
+  PubSub.subscribe('Game:dealer-dealt-card', (evt)=>{
+    this.render(false);
+    PubSub.publish('GameView:dealer-card-displayed');
+  });
+
+  PubSub.subscribe("ButtonsView:stick-clicked" , (evt) => {
+    this.render();
+    window.setTimeout(() => {
+      PubSub.publish('DealerView:dealers-cards-revealed')
+    }, 500)
+  });
+  PubSub.subscribe('Game:player-bust' , (evt) => {
+    window.setTimeout(() => {
+      this.render();
+      PubSub.publish('DealerView:dealers-cards-revealed')
+    }, 1000)
+  });
+  PubSub.subscribe('BetView:bet-placed', (evt) => {
+    this.revealCards = true;
+    this.render(true);
+  })
+};
 
 DealerView.prototype.render = function (firstCardDown) {
   this.container.innerHTML = '';
@@ -44,6 +52,7 @@ DealerView.prototype.render = function (firstCardDown) {
   if (this.revealCards){
     totalView.render(true);
     handView.render();
+    this.hitSound.play()
   } else {
     totalView.render()
   }
@@ -51,6 +60,7 @@ DealerView.prototype.render = function (firstCardDown) {
   const rulesList = this.makeRulesList();
   rulesView.appendChild(rulesList);
 };
+
 
 DealerView.prototype.makeContainer = function (containerClass) {
   const container = document.createElement('div');

@@ -11,8 +11,9 @@ const Game = function(){
   this.intendedBet = null
   this.actualBet = null
   this.over = false;
-  this.winSound = new Audio('sounds/win.mp3');
-  this.hitSound = new Audio('sounds/deal.wav');
+  this.wait = false;
+  // this.winSound = new Audio('sounds/win.mp3');
+  // this.hitSound = new Audio('sounds/deal.wav');
 
 
 };
@@ -64,7 +65,7 @@ Game.prototype.getDeck = function () {
   request.get().then((cards) => {
     this.deck.cards = cards;
     this.openingDeal();
-    PubSub.publish('Game:hands-ready', { dealerHand: this.dealer.hand, player: this.player});
+    PubSub.publish('Game:start-game', { dealerHand: this.dealer.hand, player: this.player});
   }).catch((err) => console.error(err));
 };
 
@@ -84,18 +85,25 @@ Game.prototype.openingDeal = function(){
 
 // plays the dealers turn
 Game.prototype.dealersTurn = function () {
-    this.hitSound.play();
-  if (this.dealer.hand.totalValue() < 17){
-    this.dealCard('dealer');
+    // this.hitSound.play();
 
-    window.setTimeout(this.publishDealerCard, 1000)
-    this.publishDealerBust()
-  } else if (!this.over){
-    const result = this.determineWinner();
-    window.setTimeout(() => {
-      PubSub.publish('Game: results-ready', result);
-    }, 1000);
-  };
+  if (!this.wait) {
+    if (this.dealer.hand.totalValue() < 17){
+      this.dealCard('dealer');
+
+      window.setTimeout(this.publishDealerCard, 1000)
+      this.publishDealerBust()
+    } else if (!this.over){
+      const result = this.determineWinner();
+      window.setTimeout(() => {
+        PubSub.publish('Game: results-ready', result);
+      }, 1000);
+    };
+  this.wait = true;
+  window.setTimeout(() => {
+    this.wait = false;
+  }, 700)
+  }
 };
 
 // publishes when the dealer has a new card
@@ -132,18 +140,18 @@ Game.prototype.determineWinner = function(){
   if (this.player.hand.isBlackjack && !this.dealer.hand.isBlackjack){
     this.winBlackjack();
     result.result = `BLACKJACK! You Win: ${this.actualBet*3}`
-    this.winSound.play()
+    // this.winSound.play()
   } else if (this.player.hand.checkForBust()){
     result.result = "House Wins"
   } else if (this.dealer.hand.checkForBust()){
     this.winCondition();
     result.result = `You Win: ${this.actualBet*2}`;
-    this.winSound.play()
+    // this.winSound.play()
   } else {
       if (playerHand > dealerHand) {
       this.winCondition();
       result.result = `You Win: ${this.actualBet*2}`;
-      this.winSound.play()
+      // this.winSound.play()
     } else if (dealerHand > playerHand){
       result.result = "House Wins"
     } else if (dealerHand == playerHand && this.dealer.hand.isBlackjack){
@@ -151,7 +159,7 @@ Game.prototype.determineWinner = function(){
     } else {
       this.gameIsDraw()
       result.result = "Push";
-      this.winSound.play()
+      // this.winSound.play()
     }
 
 

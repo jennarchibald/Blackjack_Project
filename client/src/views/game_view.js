@@ -9,10 +9,11 @@ const GameView = function(container){
   this.dealerHand = null
   this.player = null
   this.playerHand = null
+  this.dealerView = null;
 };
 
-GameView.prototype.bindEvents = function (){
-  PubSub.subscribe('Game:hands-ready', (evt) => {
+GameView.prototype.render = function (){
+  PubSub.subscribe('Game:start-game', (evt) => {
     this.container.innerHTML = '';
     const bothParticipants = evt.detail;
     this.dealerHand = bothParticipants.dealerHand;
@@ -21,7 +22,7 @@ GameView.prototype.bindEvents = function (){
     this.createDealerView();
     this.createResultView();
     this.createPlayerView();
-  });
+    });
 };
 
 GameView.prototype.createDealerView = function(){
@@ -29,6 +30,7 @@ GameView.prototype.createDealerView = function(){
   dealerContainer.classList.add('dealer-view');
   this.container.appendChild(dealerContainer);
   dealerView = new DealerView(dealerContainer, this.dealerHand);
+  this.dealerview = dealerView;
   dealerView.bindEvents();
   dealerView.render(true);
 };

@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
   const container = document.querySelector('#game-container');
 
   const gameView = new GameView(container);
-  gameView.bindEvents();
+  // gameView.bindEvents();
+  gameView.render();
 
 
   const game = new Game();
