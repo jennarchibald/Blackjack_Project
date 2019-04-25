@@ -85,8 +85,6 @@ Game.prototype.openingDeal = function(){
 
 // plays the dealers turn
 Game.prototype.dealersTurn = function () {
-    // this.hitSound.play();
-
   if (!this.wait) {
     if (this.dealer.hand.totalValue() < 17){
       this.dealCard('dealer');
