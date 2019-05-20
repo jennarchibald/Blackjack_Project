@@ -2,9 +2,13 @@
 
 Blackjack is a full stack JavaScript application with an Express server and MongoDB database.
 
+This project was created in a group of 4 over a 1 week sprint.
+
+Available on [Heroku](http://blackjackproject.herokuapp.com/)
+
 ## Getting Started
 
-These instructions will get the project up and running on your local machine for development purposes.
+These instructions will get the project up and running on your local machine.
 
 ### Installing
 
@@ -35,7 +39,7 @@ npm run build
 Run express (leave running in a terminal window):
 
 ```
-npm run server:dev
+npm run server
 ```
 
 ### Using
