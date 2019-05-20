@@ -6,7 +6,7 @@
   "scripts": {
     "server": "node server/server.js",
     "test": "mocha client/src/models/specs",
-    "build": "webpack -w",
+    "build": "webpack",
     "server:dev": "nodemon server/server.js"
   },
   "author": "",
