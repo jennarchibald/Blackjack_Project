@@ -22,6 +22,10 @@ Game.prototype.bindEvents = function(){
   PubSub.subscribe('DealerView:dealers-cards-revealed', (evt)=> {
     this.dealersTurn();
   });
+
+  PubSub.subscribe('GameView:dealer-card-displayed', (evt) => {
+    this.dealersTurn();
+  });
   PubSub.subscribe("ButtonsView:hit-clicked", (evt) => {
     this.dealCard('player');
     if (this.player.hand.checkForBust()){
@@ -30,9 +34,6 @@ Game.prototype.bindEvents = function(){
     } else {
       PubSub.publish('Game:player-hand-ready', this.player.hand);
     }
-  });
-  PubSub.subscribe('GameView:dealer-card-displayed', (evt) => {
-    this.dealersTurn();
   });
   PubSub.subscribe("BetView:bet-increased", (evt) => {
     this.checkMoneyForBet(evt.detail);
@@ -85,14 +86,13 @@ Game.prototype.openingDeal = function(){
 
 // plays the dealers turn
 Game.prototype.dealersTurn = function () {
-    // this.hitSound.play();
-
   if (!this.wait) {
     if (this.dealer.hand.totalValue() < 17){
-      this.dealCard('dealer');
 
+      this.dealCard('dealer');
       window.setTimeout(this.publishDealerCard, 1000)
       this.publishDealerBust()
+
     } else if (!this.over){
       const result = this.determineWinner();
       window.setTimeout(() => {

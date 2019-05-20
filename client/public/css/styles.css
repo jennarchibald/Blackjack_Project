@@ -4,6 +4,7 @@ body {
   font-family: 'Noticia Text', serif;
   margin: 0px;
   color: white;
+  font-size: 0.9em;
 }
 
 h2 {
@@ -33,7 +34,7 @@ div.dealer-view {
   grid-template-columns:30vw 40vw 30vw;
   height: 40vh;
   margin-top: 3vh;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 div.player-view {
@@ -201,8 +202,8 @@ img.card-cover {
 
 .bet-buttons, .bet-buttons:hover {
   border-radius: 50%;
-  height: 3em;
-  width: 3em;
+  height: 2.5em;
+  width: 2.5em;
   border: 5px dashed white;
   color: white;
   font-size: 1.5em;
@@ -242,7 +243,7 @@ button.place-bet, button.reset-bet {
   background-color: black;
   color: green;
   border: 1px solid black;
-  width: 12em;
+  width: 10em;
 }
 
 button.place-bet:hover, button.reset-bet:hover {
@@ -280,7 +281,7 @@ button.place-bet:disabled, button.reset-bet:disabled {
 }
 
 h4.current-bet, h4.current-wallet {
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 ul {
